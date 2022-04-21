@@ -5,6 +5,8 @@ import LoginIcon from "@mui/icons-material/Login";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import LoginModal from "./LoginModal";
 import SignupModal from "./SignupModal";
+import ShoppingCart from "./ShoppingCart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
@@ -27,6 +29,16 @@ const Navbar = () => {
     setOpenSignupModal(false);
   };
 
+  const [openShoppingCart, setOpenShoppingCart] = useState(false);
+
+  const handleClickOpenShoppingCart = () => {
+    setOpenShoppingCart(true);
+  };
+
+  const handleCloseShoppingCart = () => {
+    setOpenShoppingCart(false);
+  };
+
   return (
     <Grid
       container
@@ -36,9 +48,11 @@ const Navbar = () => {
       sx={{ marginBottom: "2rem" }}
     >
       <Grid item sm="auto">
-        <Typography fontWeight={700} fontSize={36}>
-          comfy decor
-        </Typography>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Typography fontWeight={700} fontSize={36}>
+            comfy decor
+          </Typography>
+        </Link>
       </Grid>
       <Grid item sm>
         <Typography fontWeight={500} fontSize={24}>
@@ -47,7 +61,7 @@ const Navbar = () => {
       </Grid>
       <Grid item sm="auto" textAlign="center">
         <Tooltip title={"Cart"}>
-          <IconButton>
+          <IconButton onClick={handleClickOpenShoppingCart}>
             <LocalMallIcon />
           </IconButton>
         </Tooltip>
@@ -68,6 +82,10 @@ const Navbar = () => {
         >
           Sign up
         </Button>
+        <ShoppingCart
+          open={openShoppingCart}
+          handleClose={handleCloseShoppingCart}
+        />
         <LoginModal open={openLoginModal} handleClose={handleCloseLoginModal} />
         <SignupModal
           open={openSignupModal}

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import About from "./pages/About/About";
 import Checkout from "./pages/Checkout/Checkout";
 import Home from "./pages/Home/Home";
@@ -10,8 +11,9 @@ import Profile from "./pages/Profile/Profile";
 function App() {
   return (
     <>
-      <Navbar />
       <BrowserRouter>
+        <ScrollToTop />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

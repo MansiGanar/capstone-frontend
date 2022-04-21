@@ -43,7 +43,7 @@ const Home = () => {
       >
         Choose from the categories shown below:
       </Typography>
-      <LinkWrapper to="/living-room">
+      <LinkWrapper to="/products/living-room">
         <Box
           textAlign="center"
           mb={5}
@@ -68,7 +68,7 @@ const Home = () => {
           </Wrapper>
         </Box>
       </LinkWrapper>
-      <LinkWrapper to="/bedroom">
+      <LinkWrapper to="/products/bedroom">
         <Box
           textAlign="center"
           mb={5}
@@ -92,7 +92,7 @@ const Home = () => {
           </Wrapper>
         </Box>
       </LinkWrapper>
-      <LinkWrapper to="/kitchen">
+      <LinkWrapper to="/products/kitchen">
         <Box
           textAlign="center"
           mb={5}
@@ -117,7 +117,7 @@ const Home = () => {
           </Wrapper>
         </Box>
       </LinkWrapper>
-      <LinkWrapper to="/bathroom">
+      <LinkWrapper to="/products/bathroom">
         <Box
           textAlign="center"
           mb={5}
