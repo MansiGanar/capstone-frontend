@@ -7,6 +7,7 @@ import LoginModal from "./LoginModal";
 import SignupModal from "./SignupModal";
 import ShoppingCart from "./ShoppingCart";
 import { Link } from "react-router-dom";
+import { theme } from "../utils/theme";
 
 const Navbar = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
@@ -49,13 +50,21 @@ const Navbar = () => {
     >
       <Grid item sm="auto">
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Typography fontWeight={700} fontSize={36}>
+          <Typography
+            fontWeight={700}
+            fontSize={36}
+            sx={{ color: theme.palette.primary.dark }}
+          >
             comfy decor
           </Typography>
         </Link>
       </Grid>
       <Grid item sm>
-        <Typography fontWeight={500} fontSize={24}>
+        <Typography
+          fontWeight={500}
+          fontSize={24}
+          sx={{ color: theme.palette.primary.dark }}
+        >
           the furniture store
         </Typography>
       </Grid>

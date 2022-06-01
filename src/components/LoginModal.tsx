@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import CloseIcon from "@mui/icons-material/Close";
+import { primaryText } from "../utils/colors";
 
 interface LoginModalProps {
   open: boolean;
@@ -20,7 +21,9 @@ interface LoginModalProps {
 const LoginModal = ({ open, handleClose }: LoginModalProps) => {
   return (
     <Dialog open={open} onClose={handleClose} sx={{ padding: "2rem" }}>
-      <DialogTitle sx={{ padding: "2rem", textAlign: "center" }}>
+      <DialogTitle
+        sx={{ padding: "2rem", textAlign: "center", color: primaryText }}
+      >
         Login
         <IconButton
           aria-label="close"
@@ -37,7 +40,7 @@ const LoginModal = ({ open, handleClose }: LoginModalProps) => {
       <DialogContent
         sx={{ padding: "2rem", textAlign: "center", width: "25rem" }}
       >
-        <DialogContentText sx={{ marginBottom: "1rem" }}>
+        <DialogContentText sx={{ marginBottom: "1rem", color: primaryText }}>
           Please enter your credentials to login
         </DialogContentText>
         <form>

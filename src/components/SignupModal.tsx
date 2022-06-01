@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import CloseIcon from "@mui/icons-material/Close";
+import { primaryText } from "../utils/colors";
 
 interface SignupModalProps {
   open: boolean;
@@ -20,7 +21,9 @@ interface SignupModalProps {
 const SignupModal = ({ open, handleClose }: SignupModalProps) => {
   return (
     <Dialog open={open} onClose={handleClose} sx={{ padding: "2rem" }}>
-      <DialogTitle sx={{ padding: "2rem", textAlign: "center" }}>
+      <DialogTitle
+        sx={{ padding: "2rem", textAlign: "center", color: primaryText }}
+      >
         Signup
         <IconButton
           aria-label="close"
@@ -37,7 +40,7 @@ const SignupModal = ({ open, handleClose }: SignupModalProps) => {
       <DialogContent
         sx={{ padding: "2rem", textAlign: "center", width: "25rem" }}
       >
-        <DialogContentText sx={{ marginBottom: "1rem" }}>
+        <DialogContentText sx={{ marginBottom: "1rem", color: primaryText }}>
           Please enter your details to signup for an account
         </DialogContentText>
         <form>

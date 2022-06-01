@@ -57,6 +57,7 @@ const ProductsListItem = () => {
             icon={<CheckBoxIcon />}
             label="Available"
             sx={{ padding: "1rem", marginRight: "1rem" }}
+            color="secondary"
           />
         </Tooltip>
         <Tooltip title={"Add to shopping cart"} sx={{ margin: "0 0 0 auto" }}>
