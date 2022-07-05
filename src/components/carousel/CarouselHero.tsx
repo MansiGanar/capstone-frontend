@@ -6,66 +6,158 @@ import banner1 from "../../assets/images/hero-banner-1.jpg";
 import banner2 from "../../assets/images/hero-banner-2.jpg";
 import banner3 from "../../assets/images/hero-banner-3.jpg";
 import { heroImageStyles } from "./styled";
-import { primaryText } from "../../utils/colors";
 
 const CarouselHero = () => {
   return (
-    <Carousel showStatus={false} showArrows={false} autoPlay infiniteLoop>
+    <Carousel showStatus={false} showArrows={false}>
       <Box
-        textAlign="center"
         mb={5}
         sx={{
           ...heroImageStyles,
           backgroundImage: `url(${banner1})`,
         }}
       >
-        <Box sx={{ padding: "12rem 50rem 0 5rem" }}>
+        <Box sx={{ padding: "12rem 50rem 0 10rem", textAlign: "start" }}>
           <Typography
-            fontWeight={500}
-            fontSize={32}
-            sx={{ margin: "0 0 2rem", color: primaryText }}
+            fontWeight={700}
+            fontSize={16}
+            sx={{ color: "#fb2e86" }}
+            mb={2}
           >
-            Living room
+            Best Furniture For Your Castle....
           </Typography>
-          <Button variant="outlined">Shop now</Button>
+          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+            New Furniture Collection
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={53}
+            sx={{ color: "black" }}
+            mb={2}
+          >
+            Trends in 2022
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={16}
+            sx={{ margin: "0 0 2rem", color: "#8A8FB9" }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
+            est adipiscing in phasellus non in justo.
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "0",
+              textTransform: "none",
+              background: "#fb2e86",
+              ":hover": { background: "#fb2e86", boxShadow: "none" },
+              boxShadow: "none",
+              padding: ".5rem 2rem",
+            }}
+          >
+            Shop Now
+          </Button>
         </Box>
       </Box>
       <Box
-        textAlign="center"
         mb={5}
         sx={{
           ...heroImageStyles,
           backgroundImage: `url(${banner2})`,
         }}
       >
-        <Box sx={{ padding: "8rem 0 0 40rem" }}>
+        <Box sx={{ padding: "8rem 0 0 55rem" }}>
           <Typography
-            fontWeight={500}
-            fontSize={32}
-            sx={{ margin: "0 0 2rem", color: primaryText }}
+            fontWeight={700}
+            fontSize={16}
+            sx={{ color: "#fb2e86" }}
+            mb={2}
           >
-            Bedroom and comfort zone
+            Best Furniture For Your Castle....
           </Typography>
-          <Button variant="outlined">Shop now</Button>
+          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+            New Furniture Collection
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={53}
+            sx={{ color: "black" }}
+            mb={2}
+          >
+            Trends in 2022
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={16}
+            sx={{ margin: "0 0 2rem", color: "black" }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
+            est adipiscing in phasellus non in justo.
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "0",
+              textTransform: "none",
+              background: "#fb2e86",
+              ":hover": { background: "#fb2e86", boxShadow: "none" },
+              boxShadow: "none",
+              padding: ".5rem 2rem",
+            }}
+          >
+            Shop Now
+          </Button>
         </Box>
       </Box>
       <Box
-        textAlign="center"
         mb={5}
         sx={{
           ...heroImageStyles,
           backgroundImage: `url(${banner3})`,
         }}
       >
-        <Box sx={{ padding: "12rem 0 0 0" }}>
+        <Box sx={{ padding: "8rem 0 0 0" }}>
           <Typography
-            fontWeight={500}
-            fontSize={32}
-            sx={{ margin: "0 0 2rem", color: primaryText }}
+            fontWeight={700}
+            fontSize={16}
+            sx={{ color: "#fb2e86" }}
+            mb={2}
           >
-            Office and work places
+            Best Furniture For Your Castle....
           </Typography>
-          <Button variant="outlined">Shop now</Button>
+          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+            New Furniture Collection
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={53}
+            sx={{ color: "black" }}
+            mb={2}
+          >
+            Trends in 2022
+          </Typography>
+          <Typography
+            fontWeight={700}
+            fontSize={16}
+            sx={{ margin: "0 0 2rem", color: "black" }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
+            est adipiscing in phasellus.
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "0",
+              textTransform: "none",
+              background: "#fb2e86",
+              ":hover": { background: "#fb2e86", boxShadow: "none" },
+              boxShadow: "none",
+              padding: ".5rem 2rem",
+            }}
+          >
+            Shop Now
+          </Button>
         </Box>
       </Box>
     </Carousel>

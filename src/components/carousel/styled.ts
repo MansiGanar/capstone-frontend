@@ -2,7 +2,6 @@ export const heroImageStyles = {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  height: "500px",
+  height: "43.75rem",
   width: "100%",
-  borderRadius: "1rem",
 };

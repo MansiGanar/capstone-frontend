@@ -1,107 +1,113 @@
-import React, { useState } from "react";
-import { Button, Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import LocalMallIcon from "@mui/icons-material/LocalMall";
-import LoginIcon from "@mui/icons-material/Login";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import LoginModal from "./LoginModal";
-import SignupModal from "./SignupModal";
-import ShoppingCart from "./ShoppingCart";
+import React from "react";
+import { Grid, Typography, IconButton } from "@mui/material";
+import messageIcon from "../assets/images/message-icon.svg";
+import phoneIcon from "../assets/images/phone-icon.svg";
+import loginIcon from "../assets/images/login-icon.svg";
+import shoppingCartIcon from "../assets/images/shopping-cart-icon.svg";
 import { Link } from "react-router-dom";
-import { theme } from "../utils/theme";
 
 const Navbar = () => {
-  const [openLoginModal, setOpenLoginModal] = useState(false);
-
-  const handleClickOpenLoginModal = () => {
-    setOpenLoginModal(true);
-  };
-
-  const handleCloseLoginModal = () => {
-    setOpenLoginModal(false);
-  };
-
-  const [openSignupModal, setOpenSignupModal] = useState(false);
-
-  const handleClickOpenSignupModal = () => {
-    setOpenSignupModal(true);
-  };
-
-  const handleCloseSignupModal = () => {
-    setOpenSignupModal(false);
-  };
-
-  const [openShoppingCart, setOpenShoppingCart] = useState(false);
-
-  const handleClickOpenShoppingCart = () => {
-    setOpenShoppingCart(true);
-  };
-
-  const handleCloseShoppingCart = () => {
-    setOpenShoppingCart(false);
-  };
-
   return (
-    <Grid
-      container
-      alignItems="center"
-      gap={3}
-      wrap="nowrap"
-      sx={{ marginBottom: "2rem" }}
-    >
-      <Grid item sm="auto">
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Typography
-            fontWeight={700}
-            fontSize={36}
-            sx={{ color: theme.palette.primary.dark }}
-          >
-            comfy decor
-          </Typography>
-        </Link>
-      </Grid>
-      <Grid item sm>
-        <Typography
-          fontWeight={500}
-          fontSize={24}
-          sx={{ color: theme.palette.primary.dark }}
-        >
-          the furniture store
-        </Typography>
-      </Grid>
-      <Grid item sm="auto" textAlign="center">
-        <Tooltip title={"Cart"}>
-          <IconButton onClick={handleClickOpenShoppingCart}>
-            <LocalMallIcon />
+    <>
+      <Grid
+        container
+        alignItems="center"
+        sx={{ background: "#7E33E0", color: "white", padding: ".5rem 15rem" }}
+      >
+        <Grid item>
+          <Grid container alignItems="center">
+            <Grid item>
+              <img
+                src={messageIcon}
+                alt="message"
+                style={{ marginRight: ".5rem" }}
+              />
+            </Grid>
+            <Grid item>
+              <a href="mailto:comfy.decor@gmail.com">
+                <Typography>comfy.decor@gmail.com</Typography>
+              </a>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item sm>
+          <Grid container alignItems="center">
+            <Grid item>
+              <img
+                src={phoneIcon}
+                alt="phone"
+                style={{ marginRight: ".5rem", marginLeft: "3rem" }}
+              />
+            </Grid>
+            <Grid item>
+              <a href="tel:+48786983989">
+                <Typography>(+48)786983989</Typography>
+              </a>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Grid container alignItems="center">
+            <Grid item>
+              <Link to="/login">
+                <Typography>Login</Typography>
+              </Link>
+            </Grid>
+            <Grid item>
+              <img
+                src={loginIcon}
+                alt="login"
+                style={{ marginLeft: ".5rem", marginRight: "1rem" }}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <IconButton>
+            <img src={shoppingCartIcon} alt="shopping-cart" />
           </IconButton>
-        </Tooltip>
+        </Grid>
       </Grid>
-      <Grid item sm="auto" textAlign="end">
-        <Button
-          startIcon={<LoginIcon />}
-          sx={{ marginRight: ".5rem" }}
-          variant="contained"
-          onClick={handleClickOpenLoginModal}
-        >
-          Login
-        </Button>
-        <Button
-          startIcon={<GroupAddIcon />}
-          variant="contained"
-          onClick={handleClickOpenSignupModal}
-        >
-          Sign up
-        </Button>
-        <ShoppingCart
-          open={openShoppingCart}
-          handleClose={handleCloseShoppingCart}
-        />
-        <LoginModal open={openLoginModal} handleClose={handleCloseLoginModal} />
-        <SignupModal
-          open={openSignupModal}
-          handleClose={handleCloseSignupModal}
-        />
+      <Grid container alignItems={"center"} sx={{ padding: "1rem 15rem" }}>
+        <Grid item>
+          <Link to="/">
+            <Typography
+              fontSize={34}
+              fontWeight={700}
+              sx={{ marginRight: "1rem" }}
+            >
+              comfy decor
+            </Typography>
+          </Link>
+        </Grid>
+        <Grid item sm>
+          <Link to="/">
+            <Typography fontSize={18} fontWeight={600}>
+              the furniture store
+            </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link to="/">
+            <Typography fontSize={16} sx={{ marginRight: "1rem" }}>
+              Home
+            </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link to="/products">
+            <Typography fontSize={16} sx={{ marginRight: "1rem" }}>
+              Products
+            </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link to="/contact">
+            <Typography fontSize={16}>Contact</Typography>
+          </Link>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 
