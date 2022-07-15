@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import Brands from "../Brands/Brands";
 import PageHeader from "../../../components/PageHeader";
 
-const UserLogin = () => {
+const UserRegister = () => {
   return (
     <>
-      <PageHeader title="My Account" />
+      <PageHeader title="Create an account" />
       <Box
         sx={{
           width: "28%",
@@ -21,13 +21,27 @@ const UserLogin = () => {
           fontWeight={"700"}
           sx={{ marginTop: "1rem", textAlign: "center" }}
         >
-          Login
+          Register
         </Typography>
         <Typography
           sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
         >
-          Please login using accont detail below
+          Please register by filling the details given below
         </Typography>
+        <TextField
+          id="outlined-basic"
+          label="First Name"
+          variant="outlined"
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+        />
+        <TextField
+          id="outlined-basic"
+          label="Last Name"
+          variant="outlined"
+          fullWidth
+          sx={{ marginBottom: "1rem" }}
+        />
         <TextField
           id="outlined-basic"
           label="Email Address"
@@ -42,11 +56,7 @@ const UserLogin = () => {
           fullWidth
           sx={{ marginBottom: "1rem" }}
         />
-        <Link to="#">
-          <Typography sx={{ color: "#9096B2", marginBottom: "1rem" }}>
-            Forgot your Password?
-          </Typography>
-        </Link>
+
         <Button
           variant="contained"
           fullWidth
@@ -59,13 +69,13 @@ const UserLogin = () => {
             marginBottom: "1rem",
           }}
         >
-          Login
+          Register
         </Button>
-        <Link to="/register">
+        <Link to="/login">
           <Typography
             sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
           >
-            Don't have an Account? Create Account
+            Already have an account? Login
           </Typography>
         </Link>
       </Box>
@@ -74,4 +84,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default UserRegister;

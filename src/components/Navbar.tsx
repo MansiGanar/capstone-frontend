@@ -63,9 +63,11 @@ const Navbar = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <IconButton>
-            <img src={shoppingCartIcon} alt="shopping-cart" />
-          </IconButton>
+          <Link to="/shopping-cart">
+            <IconButton>
+              <img src={shoppingCartIcon} alt="shopping-cart" />
+            </IconButton>
+          </Link>
         </Grid>
       </Grid>
       <Grid container alignItems={"center"} sx={{ padding: "1rem 15rem" }}>

@@ -4,33 +4,12 @@ import Brands from "../Home/Brands/Brands";
 import clock from "../../assets/images/clock.svg";
 import tickMark from "../../assets/images/tick-mark.svg";
 import checkList from "../../assets/images/checklist.svg";
+import PageHeader from "../../components/PageHeader";
 
 const OrderPlacedSuccessfully = () => {
   return (
     <>
-      <Box sx={{ backgroundColor: "#F6F5FF" }} lineHeight="1rem">
-        <Typography
-          sx={{
-            padding: "5rem 15rem 1rem 15rem",
-            fontSize: "2.25rem",
-            fontWeight: "700",
-            color: "#101750 ",
-          }}
-        >
-          Order Completed
-        </Typography>
-        <Grid container sx={{ padding: "0 15rem 5rem 15rem" }}>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Home</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Pages</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ color: "#FB2E86" }}>Order Completed</Typography>
-          </Grid>
-        </Grid>
-      </Box>
+      <PageHeader title="Order successful" />
       <Box>
         <Grid
           container

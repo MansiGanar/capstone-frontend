@@ -1,35 +1,14 @@
 import React from "react";
 import { Box, Typography, Grid, Button, TextField } from "@mui/material";
 import contactPageImg from "../../../assets/images/contactpage.svg";
+import PageHeader from "../../../components/PageHeader";
 
 const Contact = () => {
   return (
     <>
-      <Box sx={{ backgroundColor: "#F6F5FF" }} lineHeight="1rem">
-        <Typography
-          sx={{
-            padding: "5rem 15rem 1rem 15rem",
-            fontSize: "2.25rem",
-            fontWeight: "700",
-            color: "#101750 ",
-          }}
-        >
-          Contact Us
-        </Typography>
-        <Grid container sx={{ padding: "0 15rem 5rem 15rem" }}>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Home</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Pages</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ color: "#FB2E86" }}>Contact Us</Typography>
-          </Grid>
-        </Grid>
-      </Box>
+      <PageHeader title={"Contact us"} />;
       <Grid container padding="5rem 15rem">
-        <Grid item xs={6} pr={12}>
+        <Grid item sm={6} pr={12}>
           <Typography
             sx={{
               fontSize: "2.25rem",
@@ -83,7 +62,7 @@ const Contact = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item sm={6}>
           <Typography
             sx={{
               fontSize: "2.25rem",
@@ -179,9 +158,8 @@ const Contact = () => {
           </Grid>
         </Grid>
       </Grid>
-
       <Grid container padding="2rem 15rem 5rem">
-        <Grid item xs={6} paddingRight="1rem">
+        <Grid item sm={6} paddingRight="1rem">
           <Typography
             sx={{
               fontSize: "2.25rem",
@@ -241,7 +219,7 @@ const Contact = () => {
             Send Mail
           </Button>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item sm={6}>
           <img
             src={contactPageImg}
             alt="contact-page-img"

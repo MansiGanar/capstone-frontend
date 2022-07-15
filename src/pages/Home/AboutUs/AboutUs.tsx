@@ -6,42 +6,23 @@ import cashbackIcon from "../../../assets/images/cashback-icon.svg";
 import qualityIcon from "../../../assets/images/quality-icon.svg";
 import supportIcon from "../../../assets/images/support-icon.svg";
 import Offer from "../WhatComfyDecorOffers/Offer";
+import clientImg1 from "../../../assets/images/clientImg1.svg";
+import clientImg3 from "../../../assets/images/clientImg3.svg";
+import PageHeader from "../../../components/PageHeader";
 
 const AboutUs = () => {
   return (
     <>
-      <Box sx={{ backgroundColor: "#F6F5FF" }} lineHeight="1rem">
-        <Typography
-          sx={{
-            padding: "5rem 15rem 1rem 15rem",
-            fontSize: "2.25rem",
-            fontWeight: "700",
-            color: "#101750 ",
-          }}
-        >
-          About Us
-        </Typography>
-        <Grid container sx={{ padding: "0 15rem 5rem 15rem" }}>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Home</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ marginRight: "0.5rem" }}>Pages</Typography>
-          </Grid>
-          <Grid item>
-            <Typography sx={{ color: "#FB2E86" }}>About Us</Typography>
-          </Grid>
-        </Grid>
-      </Box>
-      <Grid container justifyContent={"center"} margin="5rem 0">
-        <Grid item xs={4}>
+      <PageHeader title={"About us"} />;
+      <Grid container padding={"5rem 15rem"}>
+        <Grid item sm={6}>
           <img
             src={furnitureImg}
             alt="furnitureImg"
             style={{ width: "30rem" }}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item sm={6}>
           <Typography
             sx={{ color: "#151875", fontSize: "2.25rem", fontWeight: "700" }}
           >
@@ -86,6 +67,7 @@ const AboutUs = () => {
         gap={5}
         justifyContent="center"
         textAlign="center"
+        mb={6}
       >
         <Grid item>
           <Offer
@@ -116,6 +98,90 @@ const AboutUs = () => {
           />
         </Grid>
       </Grid>
+      <Box textAlign={"center"} sx={{ backgroundColor: "#FBFBFF" }}>
+        <Typography sx={{ fontSize: "2.625rem", fontWeight: "500" }} mb={4}>
+          Our Client Story!
+        </Typography>
+        <Grid container justifyContent={"center"}>
+          <Grid item padding={"0.3rem"}>
+            <img
+              src={clientImg1}
+              alt="clientImg1"
+              width={"60rem"}
+              height={"60rem"}
+              style={{ borderRadius: ".3rem" }}
+            />
+          </Grid>
+          <Grid item padding={"0 0.7rem 2rem"}>
+            <img
+              src={clientImg3}
+              alt="clientImg2"
+              width={"60rem"}
+              height={"60rem"}
+              style={{ borderRadius: ".3rem" }}
+            />
+          </Grid>
+          <Grid item padding={"0.3rem"}>
+            <img
+              src={clientImg3}
+              alt="clientImg3"
+              width={"60rem"}
+              height={"60rem"}
+              style={{ borderRadius: ".3rem" }}
+            />
+          </Grid>
+        </Grid>
+        <Typography sx={{ fontSize: "1.375rem" }}>Selina Gomez</Typography>
+        <Typography sx={{ color: "#8A8FB9", fontSize: "0.625rem" }}>
+          Ceo At Webecy Digital
+        </Typography>
+        <Typography
+          sx={{
+            justifyContent: "center",
+            color: "#8A8FB9",
+            fontSize: "1rem",
+            maxWidth: "40%",
+            margin: "2rem auto",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non duis
+          ultrices quam vel dui sollicitudin aliquet id arcu. Nam vitae a enim
+          nunc, sed sapien egestas ac nam. Tristique ultrices dolor aliquam
+          lacus volutpat praesent.
+        </Typography>
+        <Grid container justifyContent="center" gap={1} mb={4}>
+          <Grid item>
+            <Box
+              sx={{
+                borderRadius: ".15rem",
+                height: ".25rem",
+                width: "1.25rem",
+                background: "#FF75B0",
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <Box
+              sx={{
+                borderRadius: ".15rem",
+                height: ".25rem",
+                width: "2.5rem",
+                background: "#FB2E86",
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <Box
+              sx={{
+                borderRadius: ".15rem",
+                height: ".25rem",
+                width: "1.25rem",
+                background: "#FF75B0",
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 };
