@@ -7,6 +7,7 @@ import {
   Checkbox,
   Button,
   Divider,
+  Box,
 } from "@mui/material";
 import PageHeader from "../../../components/PageHeader";
 import CheckOutProductDetails from "./CheckOutProductDetails";
@@ -16,7 +17,12 @@ const CheckOut = () => {
     <>
       <PageHeader title={"Check out"} />;
       <Grid container padding={"5rem 15rem"}>
-        <Grid item sm={7} padding={"2rem"} sx={{ background: "#F8F8FD" }}>
+        <Grid
+          item
+          sm={7}
+          padding={"2rem"}
+          sx={{ background: "#F8F8FD", borderRadius: ".5rem" }}
+        >
           <Typography sx={{ color: "#1D3178", fontSize: "1.5rem" }}>
             Checkout
           </Typography>
@@ -127,70 +133,69 @@ const CheckOut = () => {
           <CheckOutProductDetails />
           <CheckOutProductDetails />
           <CheckOutProductDetails />
-          <Typography
-            fontSize={20}
-            fontWeight={700}
-            sx={{ color: "#1D3178" }}
-            mb={6}
-            textAlign="center"
-            mt={5}
-          >
-            Cart Total
-          </Typography>
-          <Grid container>
-            <Grid item sm>
-              <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                Subtotal:
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                £219.00
-              </Typography>
-            </Grid>
-          </Grid>
-          <Divider sx={{ mt: 1, mb: 4 }} />
-          <Grid container>
-            <Grid item sm>
-              <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                Totals:
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                £219.00
-              </Typography>
-            </Grid>
-          </Grid>
-          <Divider sx={{ mt: 1, mb: 3 }} />
-          <FormControlLabel
-            control={
-              <Checkbox
-                sx={{
-                  color: "#19D16F",
-                  "&.Mui-checked": {
-                    color: "#19D16F",
-                  },
-                }}
-              />
-            }
-            label="Shipping & taxes calculated at checkout"
-            style={{ color: "#8A91AB", marginBottom: "1.25rem" }}
-          />
-          <Button
-            variant="contained"
-            fullWidth
+          <Box
             sx={{
-              borderRadius: ".15rem",
-              textTransform: "none",
-              background: "#19D16F",
-              ":hover": { background: "#19D16F" },
-              padding: "0.7rem",
-              marginBottom: "1rem",
+              background: "#F4F4FC",
+              padding: "2rem",
+              borderRadius: ".5rem",
             }}
+            mt={2}
           >
-            Proceed to Checkout
-          </Button>
+            <Grid container>
+              <Grid item sm>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  Subtotal:
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  £219.00
+                </Typography>
+              </Grid>
+            </Grid>
+            <Divider sx={{ mt: 1, mb: 4 }} />
+            <Grid container>
+              <Grid item sm>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  Totals:
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  £219.00
+                </Typography>
+              </Grid>
+            </Grid>
+            <Divider sx={{ mt: 1, mb: 3 }} />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  sx={{
+                    color: "#19D16F",
+                    "&.Mui-checked": {
+                      color: "#19D16F",
+                    },
+                  }}
+                />
+              }
+              label="Shipping & taxes calculated at checkout"
+              style={{ color: "#8A91AB", marginBottom: "1.25rem" }}
+            />
+            <Button
+              variant="contained"
+              fullWidth
+              sx={{
+                borderRadius: ".15rem",
+                textTransform: "none",
+                background: "#19D16F",
+                ":hover": { background: "#19D16F" },
+                padding: "0.7rem",
+                marginBottom: "1rem",
+              }}
+            >
+              Proceed to Checkout
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </>
