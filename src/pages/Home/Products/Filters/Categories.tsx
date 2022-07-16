@@ -1,12 +1,12 @@
+import React from "react";
 import {
   Checkbox,
   FormControlLabel,
   FormGroup,
   Typography,
 } from "@mui/material";
-import React from "react";
 
-const ProductsShoppingFilters = () => {
+const Categories = () => {
   const [state, setState] = React.useState({
     kitchen: false,
     bedroom: false,
@@ -29,6 +29,7 @@ const ProductsShoppingFilters = () => {
     <>
       <Typography
         sx={{ fontSize: "1.25rem", color: "#151875", padding: "1rem 0" }}
+        fontWeight={700}
       >
         Categories
       </Typography>
@@ -140,4 +141,4 @@ const ProductsShoppingFilters = () => {
   );
 };
 
-export default ProductsShoppingFilters;
+export default Categories;

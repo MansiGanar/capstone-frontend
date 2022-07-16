@@ -13,7 +13,7 @@ import ShoppingCart from "./pages/Home/ShoppingCart/ShoppingCart";
 import UserLogin from "./pages/Home/UserLogin/UserLogin";
 import UserRegister from "./pages/Home/UserRegister/UserRegister";
 import OrderPlacedSuccessfully from "./pages/OrderPlacedSuccessfully/OrderPlacedSuccessfully";
-import ProductsShopping from "./pages/Home/ProductsShopping/ProductsShoppingMain";
+import Products from "./pages/Home/Products/Products";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path="/register" element={<UserRegister />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="products-shopping" element={<ProductsShopping />} />
+          <Route path="products" element={<Products />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} />
           <Route path="/faq" element={<FAQ />} />

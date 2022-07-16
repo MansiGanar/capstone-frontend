@@ -10,9 +10,10 @@ import {
   Box,
 } from "@mui/material";
 import PageHeader from "../../../components/PageHeader";
-import ProductsShoppingFilters from "./ProductsShoppingFilters";
+import Filters from "./Filters/Filters";
+import ProductsList from "./ProductsList/ProductsList";
 
-const ShoppingProducts = () => {
+const Products = () => {
   const [sort, setSort] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -55,14 +56,16 @@ const ShoppingProducts = () => {
           </Grid>
         </Grid>
         <Grid container>
-          <Grid item sm={4}>
-            <ProductsShoppingFilters />
+          <Grid item sm={2}>
+            <Filters />
           </Grid>
-          <Grid item sm={8}></Grid>
+          <Grid item sm={10}>
+            <ProductsList />
+          </Grid>
         </Grid>
       </Box>
     </>
   );
 };
 
-export default ShoppingProducts;
+export default Products;
