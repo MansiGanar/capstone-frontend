@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselHero from "../../components/carousel/CarouselHero";
+import CarouselHero from "./Carousel/CarouselHero";
 import Brands from "./Brands/Brands";
 import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
 import Newsletter from "./Newsletter/Newsletter";

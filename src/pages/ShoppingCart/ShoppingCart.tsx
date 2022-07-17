@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import PageHeader from "../../../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import CartItemsTable from "./CartItemsTable";
 import CartPaymentSummary from "./CartPaymentSummary";
 

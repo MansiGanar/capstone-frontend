@@ -1,8 +1,8 @@
 import { Grid, Typography, Rating, IconButton } from "@mui/material";
 import React from "react";
-import bedroomImg from "../../../../assets/images/bedroom.jpg";
-import zoomIcon from "../../../../assets/images/zoom-icon.svg";
-import shoppingCartColorIcon from "../../../../assets/images/shopping-cart-color-icon.svg";
+import bedroomImg from "../../../assets/images/bedroom.jpg";
+import zoomIcon from "../../../assets/images/zoom-icon.svg";
+import shoppingCartColorIcon from "../../../assets/images/shopping-cart-color-icon.svg";
 
 const ProductsListItem = () => {
   return (

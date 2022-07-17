@@ -2,9 +2,9 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Box, Typography, Button } from "@mui/material";
-import banner1 from "../../assets/images/hero-banner-1.jpg";
-import banner2 from "../../assets/images/hero-banner-2.jpg";
-import banner3 from "../../assets/images/hero-banner-3.jpg";
+import banner1 from "../../../assets/images/hero-banner-1.jpg";
+import banner2 from "../../../assets/images/hero-banner-2.jpg";
+import banner3 from "../../../assets/images/hero-banner-3.jpg";
 import { heroImageStyles } from "./styled";
 
 const CarouselHero = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
-import bagImg from "../../../assets/images/bagImg.jpg";
+import bagImg from "../../assets/images/bagImg.jpg";
 
 const CheckOutProductDetails = () => {
   return (

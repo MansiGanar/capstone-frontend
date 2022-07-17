@@ -2,8 +2,8 @@ import React from "react";
 import { Grid, Typography, IconButton, Badge, Divider } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import cancelIcon from "../../../assets/images/cancel-icon.svg";
-import shoppingCartImg from "../../../assets/images/shoppingCartImg.svg";
+import cancelIcon from "../../assets/images/cancel-icon.svg";
+import shoppingCartImg from "../../assets/images/shoppingCartImg.svg";
 
 const CartItemsTableRow = () => {
   return (

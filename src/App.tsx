@@ -3,17 +3,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
-import AboutUs from "./pages/Home/AboutUs/AboutUs";
-import CheckOut from "./pages/Home/CheckOut/CheckOut";
-import Contact from "./pages/Home/Contact/Contact";
-import FAQ from "./pages/Home/FAQ/FAQ";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import CheckOut from "./pages/CheckOut/CheckOut";
+import Contact from "./pages/Contact/Contact";
+import FAQ from "./pages/FAQ/FAQ";
 import Home from "./pages/Home/Home";
-import NotFound from "./pages/Home/NotFound/NotFound";
-import ShoppingCart from "./pages/Home/ShoppingCart/ShoppingCart";
-import UserLogin from "./pages/Home/UserLogin/UserLogin";
-import UserRegister from "./pages/Home/UserRegister/UserRegister";
+import NotFound from "./pages/NotFound/NotFound";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
+import UserLogin from "./pages/UserLogin/UserLogin";
+import UserRegister from "./pages/UserRegister/UserRegister";
 import OrderPlacedSuccessfully from "./pages/OrderPlacedSuccessfully/OrderPlacedSuccessfully";
-import Products from "./pages/Home/Products/Products";
+import Products from "./pages/Products/Products";
 
 function App() {
   return (

@@ -9,7 +9,7 @@ import {
   Divider,
   Box,
 } from "@mui/material";
-import PageHeader from "../../../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import CheckOutProductDetails from "./CheckOutProductDetails";
 
 const CheckOut = () => {

@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
-import furnitureImg from "../../../assets/images/history.jpg";
-import truckIcon from "../../../assets/images/truck-icon.svg";
-import cashbackIcon from "../../../assets/images/cashback-icon.svg";
-import qualityIcon from "../../../assets/images/quality-icon.svg";
-import supportIcon from "../../../assets/images/support-icon.svg";
-import Offer from "../WhatComfyDecorOffers/Offer";
-import clientImg1 from "../../../assets/images/clientImg1.svg";
-import clientImg3 from "../../../assets/images/clientImg3.svg";
-import PageHeader from "../../../components/PageHeader";
+import furnitureImg from "../../assets/images/history.jpg";
+import truckIcon from "../../assets/images/truck-icon.svg";
+import cashbackIcon from "../../assets/images/cashback-icon.svg";
+import qualityIcon from "../../assets/images/quality-icon.svg";
+import supportIcon from "../../assets/images/support-icon.svg";
+import Offer from "../Home/WhatComfyDecorOffers/Offer";
+import clientImg1 from "../../assets/images/clientImg1.svg";
+import clientImg3 from "../../assets/images/clientImg3.svg";
+import PageHeader from "../../components/PageHeader";
 
 const AboutUs = () => {
   return (
