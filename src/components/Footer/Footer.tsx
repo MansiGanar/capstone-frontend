@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import facebookIcon from "../assets/images/facebook-icon.svg";
-import instagramIcon from "../assets/images/instagram-icon.svg";
-import twitterIcon from "../assets/images/twitter-icon.svg";
+import facebookIcon from "../../assets/images/facebook-icon.svg";
+import instagramIcon from "../../assets/images/instagram-icon.svg";
+import twitterIcon from "../../assets/images/twitter-icon.svg";
 
 const Footer = () => {
   return (

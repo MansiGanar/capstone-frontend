@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography, IconButton } from "@mui/material";
-import messageIcon from "../assets/images/message-icon.svg";
-import phoneIcon from "../assets/images/phone-icon.svg";
-import loginIcon from "../assets/images/login-icon.svg";
-import shoppingCartIcon from "../assets/images/shopping-cart-icon.svg";
-import { Link } from "react-router-dom";
+import messageIcon from "../../assets/images/message-icon.svg";
+import phoneIcon from "../../assets/images/phone-icon.svg";
+import loginIcon from "../../assets/images/login-icon.svg";
+import shoppingCartIcon from "../../assets/images/shopping-cart-icon.svg";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
+  const token = localStorage.getItem("token");
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  }, [token]);
+
   return (
     <>
       <Grid
@@ -48,18 +64,43 @@ const Navbar = () => {
         </Grid>
         <Grid item>
           <Grid container alignItems="center">
+            {isLoggedIn && (
+              <Grid item>
+                <img
+                  src={loginIcon}
+                  alt="login"
+                  style={{ marginLeft: ".5rem", marginRight: ".5rem" }}
+                />
+              </Grid>
+            )}
             <Grid item>
-              <Link to="/login">
-                <Typography>Login</Typography>
-              </Link>
+              {isLoggedIn ? (
+                <Link to="/my-account">
+                  <Typography mr={3}>My Account</Typography>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <Typography>Login</Typography>
+                </Link>
+              )}
             </Grid>
-            <Grid item>
-              <img
-                src={loginIcon}
-                alt="login"
-                style={{ marginLeft: ".5rem", marginRight: "1rem" }}
-              />
-            </Grid>
+            {!isLoggedIn && (
+              <Grid item>
+                <img
+                  src={loginIcon}
+                  alt="login"
+                  style={{ marginLeft: ".5rem", marginRight: "1rem" }}
+                />
+              </Grid>
+            )}
+            {isLoggedIn && (
+              <Grid
+                item
+                sx={{ marginRight: "1rem", ":hover": { cursor: "pointer" } }}
+              >
+                <Typography onClick={logout}>Logout</Typography>
+              </Grid>
+            )}
           </Grid>
         </Grid>
         <Grid item>

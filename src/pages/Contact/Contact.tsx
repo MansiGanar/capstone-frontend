@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Grid, Button, TextField } from "@mui/material";
 import contactPageImg from "../../assets/images/contactpage.svg";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const Contact = () => {
   return (

@@ -4,7 +4,7 @@ import Brands from "../Home/Brands/Brands";
 import clock from "../../assets/images/clock.svg";
 import tickMark from "../../assets/images/tick-mark.svg";
 import checkList from "../../assets/images/checklist.svg";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const OrderPlacedSuccessfully = () => {
   return (

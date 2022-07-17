@@ -1,13 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Brands from "../Home/Brands/Brands";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import { useSnackbar } from "notistack";
+import { loginUser } from "../../api/authentication/authentication";
+import Loader from "../../components/Loader/Loader";
 
 const UserLogin = () => {
+  const defaultFormValues = {
+    email: "",
+    password: "",
+  };
+
+  const [loginFormData, setLoginFormData] = useState(defaultFormValues);
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setLoginFormData({
+      ...loginFormData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (
+    event:
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const response = await loginUser(loginFormData);
+      localStorage.setItem("token", response.token);
+      setLoginFormData(defaultFormValues);
+      navigate("/");
+    } catch (error: any) {
+      localStorage.removeItem("token");
+      enqueueSnackbar(
+        error?.response?.data?.msg ||
+          error?.response?.data?.errors[0]?.msg ||
+          "An error occurred. Please try again.",
+        {
+          variant: "error",
+        }
+      );
+    }
+    setLoading(false);
+  };
+
   return (
     <>
-      <PageHeader title="My Account" />
+      <PageHeader title="Log in to your account" />
       <Box
         sx={{
           width: "28%",
@@ -29,38 +79,47 @@ const UserLogin = () => {
           Please login using accont detail below
         </Typography>
         <TextField
-          id="outlined-basic"
           label="Email Address"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          name="email"
+          value={loginFormData.email}
+          onChange={handleChange}
         />
         <TextField
-          id="outlined-basic"
           label="Password"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          name="password"
+          value={loginFormData.password}
+          onChange={handleChange}
         />
         <Link to="#">
           <Typography sx={{ color: "#9096B2", marginBottom: "1rem" }}>
             Forgot your Password?
           </Typography>
         </Link>
-        <Button
-          variant="contained"
-          fullWidth
-          sx={{
-            borderRadius: "0",
-            textTransform: "none",
-            background: "#FF1788",
-            ":hover": { background: "#FF1788" },
-            padding: "0.7rem",
-            marginBottom: "1rem",
-          }}
-        >
-          Login
-        </Button>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              borderRadius: "0",
+              textTransform: "none",
+              background: "#FF1788",
+              ":hover": { background: "#FF1788" },
+              padding: "0.7rem",
+              marginBottom: "1rem",
+            }}
+            onClick={handleSubmit}
+          >
+            Login
+          </Button>
+        )}
         <Link to="/register">
           <Typography
             sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}

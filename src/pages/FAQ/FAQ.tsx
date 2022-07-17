@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, Button, TextField } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const FAQ = () => {
   return (

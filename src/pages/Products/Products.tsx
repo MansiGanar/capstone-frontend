@@ -9,7 +9,7 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import Filters from "./Filters/Filters";
 import ProductsList from "./ProductsList/ProductsList";
 

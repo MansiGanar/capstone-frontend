@@ -8,7 +8,7 @@ import supportIcon from "../../assets/images/support-icon.svg";
 import Offer from "../Home/WhatComfyDecorOffers/Offer";
 import clientImg1 from "../../assets/images/clientImg1.svg";
 import clientImg3 from "../../assets/images/clientImg3.svg";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 const AboutUs = () => {
   return (

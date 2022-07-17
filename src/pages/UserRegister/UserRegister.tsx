@@ -1,10 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import { Link, useNavigate } from "react-router-dom";
 import Brands from "../Home/Brands/Brands";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import { registerUser } from "../../api/authentication/authentication";
+import Loader from "../../components/Loader/Loader";
 
 const UserRegister = () => {
+  const defaultFormValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  };
+
+  const [registerFormData, setRegisterFormData] = useState(defaultFormValues);
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setRegisterFormData({
+      ...registerFormData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (
+    event:
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const response = await registerUser(registerFormData);
+      localStorage.setItem("token", response.token);
+      setRegisterFormData(defaultFormValues);
+      navigate("/");
+    } catch (error: any) {
+      localStorage.removeItem("token");
+      enqueueSnackbar(
+        error?.response?.data?.msg ||
+          error?.response?.data?.errors[0]?.msg ||
+          "An error occurred. Please try again.",
+        {
+          variant: "error",
+        }
+      );
+    }
+    setLoading(false);
+  };
+
   return (
     <>
       <PageHeader title="Create an account" />
@@ -29,48 +81,60 @@ const UserRegister = () => {
           Please register by filling the details given below
         </Typography>
         <TextField
-          id="outlined-basic"
           label="First Name"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          onChange={handleChange}
+          value={registerFormData.firstName}
+          name="firstName"
         />
         <TextField
-          id="outlined-basic"
           label="Last Name"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          onChange={handleChange}
+          value={registerFormData.lastName}
+          name="lastName"
         />
         <TextField
-          id="outlined-basic"
           label="Email Address"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          onChange={handleChange}
+          value={registerFormData.email}
+          name="email"
         />
         <TextField
-          id="outlined-basic"
           label="Password"
           variant="outlined"
           fullWidth
           sx={{ marginBottom: "1rem" }}
+          onChange={handleChange}
+          value={registerFormData.password}
+          name="password"
         />
-
-        <Button
-          variant="contained"
-          fullWidth
-          sx={{
-            borderRadius: "0",
-            textTransform: "none",
-            background: "#FF1788",
-            ":hover": { background: "#FF1788" },
-            padding: "0.7rem",
-            marginBottom: "1rem",
-          }}
-        >
-          Register
-        </Button>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              borderRadius: "0",
+              textTransform: "none",
+              background: "#FF1788",
+              ":hover": { background: "#FF1788" },
+              padding: "0.7rem",
+              marginBottom: "1rem",
+            }}
+            onClick={handleSubmit}
+          >
+            Register
+          </Button>
+        )}
         <Link to="/login">
           <Typography
             sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
