@@ -1,15 +1,16 @@
-import { Grid, Typography, Rating, IconButton } from "@mui/material";
 import React from "react";
-import bedroomImg from "../../../assets/images/bedroom.jpg";
+import { Grid, Typography, Rating, IconButton } from "@mui/material";
 import zoomIcon from "../../../assets/images/zoom-icon.svg";
 import shoppingCartColorIcon from "../../../assets/images/shopping-cart-color-icon.svg";
+import { IProductsListItemProps } from "./types";
+import { formatPrice } from "../../../utils/utils";
 
-const ProductsListItem = () => {
+const ProductsListItem = ({ product }: IProductsListItemProps) => {
   return (
     <Grid container padding="1rem" mb={3}>
       <Grid item sm={3}>
         <img
-          src={bedroomImg}
+          src={product.image}
           alt="products list item"
           style={{ height: "12.313rem", width: "17.75rem" }}
         />
@@ -21,19 +22,21 @@ const ProductsListItem = () => {
           sx={{ color: "#111C85" }}
           mb={1}
         >
-          Dictum morbi
+          {product.name}
         </Typography>
         <Grid container alignItems="center" gap={2}>
-          <Grid item>$26.00</Grid>
+          <Grid item>{formatPrice(product.price)}</Grid>
           <Grid item>
-            <Rating name="read-only" value={2.5} readOnly precision={0.5} />
+            <Rating
+              name="read-only"
+              value={parseFloat(product.rating)}
+              readOnly
+              precision={0.5}
+            />
           </Grid>
         </Grid>
-        <Typography fontSize={16} sx={{ color: "#9295AA" }} mt={1} mb={3}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est
-          adipiscing in phasellus non in justo.Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Magna in est adipiscing in phasellus non
-          in justo.
+        <Typography fontSize={16} sx={{ color: "#9295AA" }} mt={2} mb={2}>
+          {product.description}
         </Typography>
         <Grid container alignItems="center" gap={2}>
           <Grid item>

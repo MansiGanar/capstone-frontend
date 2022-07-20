@@ -2,6 +2,10 @@ import React from "react";
 import { Box, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TopCategory from "./TopCategory";
+import kitchenCardImg from "../../../assets/images/kitchen-card-img.jpg";
+import officeCardImg from "../../../assets/images/office-card-img.jpg";
+import bathroomCardImg from "../../../assets/images/bathroom-card-img.jpg";
+import livingRoomCardImg from "../../../assets/images/living-room-card-img.jpg";
 
 const TopCategories = () => {
   return (
@@ -21,16 +25,16 @@ const TopCategories = () => {
         justifyContent="center"
       >
         <Grid item>
-          <TopCategory />
+          <TopCategory image={kitchenCardImg} categoryName="Kitchen" />
         </Grid>
         <Grid item>
-          <TopCategory />
+          <TopCategory image={bathroomCardImg} categoryName="Bathroom" />
         </Grid>
         <Grid item>
-          <TopCategory />
+          <TopCategory image={officeCardImg} categoryName="Office" />
         </Grid>
         <Grid item>
-          <TopCategory />
+          <TopCategory image={livingRoomCardImg} categoryName="Living Room" />
         </Grid>
       </Grid>
     </Box>

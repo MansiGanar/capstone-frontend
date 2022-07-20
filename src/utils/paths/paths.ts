@@ -3,3 +3,5 @@ export const BASE_URL =
 
 export const REGISTER_USER_URL = BASE_URL + "register";
 export const LOGIN_USER_URL = BASE_URL + "login";
+
+export const GET_ALL_PRODUCTS_URL = BASE_URL + "products/all";

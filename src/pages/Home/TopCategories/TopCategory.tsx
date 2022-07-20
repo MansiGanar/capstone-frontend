@@ -2,18 +2,29 @@ import React from "react";
 import { Button, Box } from "@mui/material";
 import dummyProductImage from "../../../assets/images/fake-product-image.svg";
 import { Link } from "react-router-dom";
+import { ITopCategoryProps } from "./types";
 
-const TopCategory = () => {
+const TopCategory = ({ image, categoryName }: ITopCategoryProps) => {
   return (
     <Link to="/">
       <Box
         sx={{
           boxShadow: "0rem 0rem 1.563rem rgba(0, 0, 0, 0.2)",
           padding: "2rem",
+          borderRadius: ".5rem",
         }}
       >
         <Box sx={{ background: "#F6F7FB" }}>
-          <img src={dummyProductImage} alt="dummy product" />
+          <img
+            src={image}
+            alt="dummy product"
+            style={{
+              width: "auto",
+              height: "22.875rem",
+              borderRadius: ".5rem",
+              objectFit: "contain",
+            }}
+          />
         </Box>
         <Button
           variant="contained"
@@ -27,7 +38,7 @@ const TopCategory = () => {
             marginTop: "1.5rem",
           }}
         >
-          Kitchen
+          {categoryName}
         </Button>
       </Box>
     </Link>

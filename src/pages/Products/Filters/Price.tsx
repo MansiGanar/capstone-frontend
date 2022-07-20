@@ -5,6 +5,7 @@ import {
   FormGroup,
   Typography,
 } from "@mui/material";
+import { formatPrice } from "../../../utils/utils";
 
 const Price = () => {
   const [state, setState] = React.useState({
@@ -45,7 +46,7 @@ const Price = () => {
               }}
             />
           }
-          label="Under $500"
+          label={`Under ${formatPrice("500")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -62,7 +63,7 @@ const Price = () => {
               }}
             />
           }
-          label="$500 - $1000"
+          label={`${formatPrice("500")} - ${formatPrice("1000")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -79,7 +80,7 @@ const Price = () => {
               }}
             />
           }
-          label="$1000 - $2000"
+          label={`${formatPrice("1000")} - ${formatPrice("2000")}`}
         />
         <FormControlLabel
           sx={{ color: "#7E81A2" }}
@@ -96,7 +97,7 @@ const Price = () => {
               }}
             />
           }
-          label="Above $2000"
+          label={`Above ${formatPrice("2000")}`}
         />
       </FormGroup>
     </>

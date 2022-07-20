@@ -1,5 +1,5 @@
 import axios from "axios";
-import { REGISTER_USER_URL, LOGIN_USER_URL } from "../paths/paths";
+import { REGISTER_USER_URL, LOGIN_USER_URL } from "../../utils/paths/paths";
 import {
   IRegisterUser,
   RegisterUserResponse,
