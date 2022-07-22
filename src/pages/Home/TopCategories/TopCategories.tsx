@@ -25,16 +25,32 @@ const TopCategories = () => {
         justifyContent="center"
       >
         <Grid item>
-          <TopCategory image={kitchenCardImg} categoryName="Kitchen" />
+          <TopCategory
+            image={kitchenCardImg}
+            categoryName="Kitchen"
+            link="/kitchen"
+          />
         </Grid>
         <Grid item>
-          <TopCategory image={bathroomCardImg} categoryName="Bathroom" />
+          <TopCategory
+            image={bathroomCardImg}
+            categoryName="Bathroom"
+            link="/bathroom"
+          />
         </Grid>
         <Grid item>
-          <TopCategory image={officeCardImg} categoryName="Office" />
+          <TopCategory
+            image={officeCardImg}
+            categoryName="Office"
+            link="/office"
+          />
         </Grid>
         <Grid item>
-          <TopCategory image={livingRoomCardImg} categoryName="Living Room" />
+          <TopCategory
+            image={livingRoomCardImg}
+            categoryName="Living Room"
+            link="/living-room"
+          />
         </Grid>
       </Grid>
     </Box>

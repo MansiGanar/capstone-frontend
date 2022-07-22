@@ -76,7 +76,7 @@ const UserLogin = () => {
         <Typography
           sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
         >
-          Please login using accont detail below
+          Please login using your account details
         </Typography>
         <TextField
           label="Email Address"
@@ -95,10 +95,11 @@ const UserLogin = () => {
           name="password"
           value={loginFormData.password}
           onChange={handleChange}
+          type="password"
         />
         <Link to="#">
           <Typography sx={{ color: "#9096B2", marginBottom: "1rem" }}>
-            Forgot your Password?
+            Forgot your password?
           </Typography>
         </Link>
         {loading ? (
@@ -124,7 +125,7 @@ const UserLogin = () => {
           <Typography
             sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
           >
-            Don't have an Account? Create Account
+            Don't have an Account? Create an Account
           </Typography>
         </Link>
       </Box>

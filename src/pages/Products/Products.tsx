@@ -50,24 +50,26 @@ const Products = () => {
                 <Grid item>
                   <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel>Sort By:</InputLabel>
-                    <Select value={sort} label="Age" onChange={handleChange}>
-                      <MenuItem value="">
-                        <em>None</em>
+                    <Select
+                      value={sort}
+                      label="Sort By:"
+                      onChange={handleChange}
+                    >
+                      <MenuItem value={"highToLow"}>
+                        Price - High to Low
                       </MenuItem>
-                      <MenuItem value={"recommendations"}>
-                        Recommendations
+                      <MenuItem value={"lowToHigh"}>
+                        Price - Low to High
                       </MenuItem>
-                      <MenuItem value={"highestFisrt"}>HighestFisrt</MenuItem>
-                      <MenuItem value={"lowestFirst"}>Lowest First</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
               </Grid>
               <Grid container>
-                <Grid item sm={2}>
+                <Grid item sm={3}>
                   <Filters />
                 </Grid>
-                <Grid item sm={10}>
+                <Grid item sm={9}>
                   <ProductsList />
                 </Grid>
               </Grid>

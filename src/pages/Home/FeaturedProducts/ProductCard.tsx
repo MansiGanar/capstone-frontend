@@ -16,7 +16,7 @@ const ProductCard = ({ product }: IProductCardItemProps) => {
         <img
           src={product.image}
           alt="dummy product"
-          style={{ width: "16.875rem", height: "14.75rem" }}
+          style={{ width: "13.875rem", height: "10.75rem" }}
         />
       </Box>
       <Typography

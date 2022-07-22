@@ -79,30 +79,39 @@ const Footer = () => {
         </Grid>
         <Grid item>
           <Typography mb={3}>Customer Care</Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            My Account
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Discount
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Returns
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Order Tracking
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Orders History
-          </Typography>
+          <Link to="/my-account">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              My Account
+            </Typography>
+          </Link>
+          <Link to="/faq">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              FAQ
+            </Typography>
+          </Link>
         </Grid>
         <Grid item>
           <Typography mb={3}>Pages</Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Browse the Shop
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            Category
-          </Typography>
+          <Link to="/products">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              Browse the Shop
+            </Typography>
+          </Link>
+          <Link to="/register">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              Create an account
+            </Typography>
+          </Link>
+          <Link to="/login">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              Login
+            </Typography>
+          </Link>
+          <Link to="/contact">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              Contact
+            </Typography>
+          </Link>
         </Grid>
       </Grid>
       <Grid

@@ -8,14 +8,14 @@ import { formatPrice } from "../../../utils/utils";
 const ProductsListItem = ({ product }: IProductsListItemProps) => {
   return (
     <Grid container padding="1rem" mb={3}>
-      <Grid item sm={3}>
+      <Grid item sm={4} pr={1}>
         <img
           src={product.image}
           alt="products list item"
-          style={{ height: "12.313rem", width: "17.75rem" }}
+          style={{ height: "10.313rem", width: "15.75rem" }}
         />
       </Grid>
-      <Grid item padding="1rem" sm={9}>
+      <Grid item padding="1rem" sm={8}>
         <Typography
           fontSize={18}
           fontWeight={500}

@@ -6,6 +6,7 @@ import banner1 from "../../../assets/images/hero-banner-1.jpg";
 import banner2 from "../../../assets/images/hero-banner-2.jpg";
 import banner3 from "../../../assets/images/hero-banner-3.jpg";
 import { heroImageStyles } from "./styled";
+import { Link } from "react-router-dom";
 
 const CarouselHero = () => {
   return (
@@ -17,7 +18,7 @@ const CarouselHero = () => {
           backgroundImage: `url(${banner1})`,
         }}
       >
-        <Box sx={{ padding: "12rem 50rem 0 10rem", textAlign: "start" }}>
+        <Box sx={{ padding: "9rem 50rem 0 10rem", textAlign: "start" }}>
           <Typography
             fontWeight={700}
             fontSize={16}
@@ -45,19 +46,21 @@ const CarouselHero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
             est adipiscing in phasellus non in justo.
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#fb2e86",
-              ":hover": { background: "#fb2e86", boxShadow: "none" },
-              boxShadow: "none",
-              padding: ".5rem 2rem",
-            }}
-          >
-            Shop Now
-          </Button>
+          <Link to="/products">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#fb2e86",
+                ":hover": { background: "#fb2e86", boxShadow: "none" },
+                boxShadow: "none",
+                padding: ".5rem 2rem",
+              }}
+            >
+              Shop Now
+            </Button>
+          </Link>
         </Box>
       </Box>
       <Box
@@ -67,7 +70,7 @@ const CarouselHero = () => {
           backgroundImage: `url(${banner2})`,
         }}
       >
-        <Box sx={{ padding: "8rem 0 0 55rem" }}>
+        <Box sx={{ padding: "5rem 0 0 45rem" }}>
           <Typography
             fontWeight={700}
             fontSize={16}
@@ -95,19 +98,21 @@ const CarouselHero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
             est adipiscing in phasellus non in justo.
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#fb2e86",
-              ":hover": { background: "#fb2e86", boxShadow: "none" },
-              boxShadow: "none",
-              padding: ".5rem 2rem",
-            }}
-          >
-            Shop Now
-          </Button>
+          <Link to="/products">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#fb2e86",
+                ":hover": { background: "#fb2e86", boxShadow: "none" },
+                boxShadow: "none",
+                padding: ".5rem 2rem",
+              }}
+            >
+              Shop Now
+            </Button>
+          </Link>
         </Box>
       </Box>
       <Box
@@ -145,19 +150,21 @@ const CarouselHero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in
             est adipiscing in phasellus.
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#fb2e86",
-              ":hover": { background: "#fb2e86", boxShadow: "none" },
-              boxShadow: "none",
-              padding: ".5rem 2rem",
-            }}
-          >
-            Shop Now
-          </Button>
+          <Link to="/products">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#fb2e86",
+                ":hover": { background: "#fb2e86", boxShadow: "none" },
+                boxShadow: "none",
+                padding: ".5rem 2rem",
+              }}
+            >
+              Shop Now
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Carousel>

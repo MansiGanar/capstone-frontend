@@ -1,12 +1,11 @@
 import React from "react";
 import { Button, Box } from "@mui/material";
-import dummyProductImage from "../../../assets/images/fake-product-image.svg";
 import { Link } from "react-router-dom";
 import { ITopCategoryProps } from "./types";
 
-const TopCategory = ({ image, categoryName }: ITopCategoryProps) => {
+const TopCategory = ({ image, categoryName, link }: ITopCategoryProps) => {
   return (
-    <Link to="/">
+    <Link to={link}>
       <Box
         sx={{
           boxShadow: "0rem 0rem 1.563rem rgba(0, 0, 0, 0.2)",

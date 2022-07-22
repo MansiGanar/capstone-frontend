@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import trendingProduct from "../../../assets/images/trending-product.svg";
+import { formatPrice } from "../../../utils/utils";
 
 const TrendingProduct = () => {
   return (
@@ -20,7 +21,7 @@ const TrendingProduct = () => {
           fontWeight={700}
           mb={3}
         >
-          Unique Features Of leatest & Trending Poducts
+          Unique Features Of latest & Trending Products
         </Typography>
         <ul>
           <li style={{ color: "#F52B70", fontSize: "2rem" }}>
@@ -40,35 +41,17 @@ const TrendingProduct = () => {
             </Typography>
           </li>
         </ul>
-        <Grid container alignItems="center" mt={5} gap={3}>
-          <Grid item>
-            <Button
-              variant="contained"
-              sx={{
-                borderRadius: "0",
-                textTransform: "none",
-                background: "#fb2e86",
-                ":hover": { background: "#fb2e86", boxShadow: "none" },
-                boxShadow: "none",
-                padding: ".5rem 2rem",
-              }}
-            >
-              Add to Cart
-            </Button>
-          </Grid>
-          <Grid item>
-            <Typography
-              sx={{ color: "#1A0B5B" }}
-              fontSize={14}
-              fontWeight={500}
-            >
-              B&B Italian Sofa
-            </Typography>
-            <Typography sx={{ color: "#1A0B5B" }} fontSize={14}>
-              €32.0
-            </Typography>
-          </Grid>
-        </Grid>
+        <Typography
+          sx={{ color: "#1A0B5B" }}
+          fontSize={14}
+          fontWeight={500}
+          mt={4}
+        >
+          B&B Italian Sofa
+        </Typography>
+        <Typography sx={{ color: "#1A0B5B" }} fontSize={14}>
+          {formatPrice("499")}
+        </Typography>
       </Grid>
     </Grid>
   );

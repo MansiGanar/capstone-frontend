@@ -78,7 +78,7 @@ const UserRegister = () => {
         <Typography
           sx={{ color: "#9096B2", marginBottom: "1rem", textAlign: "center" }}
         >
-          Please register by filling the details given below
+          Please register by filling in the details given below
         </Typography>
         <TextField
           label="First Name"
@@ -115,6 +115,7 @@ const UserRegister = () => {
           onChange={handleChange}
           value={registerFormData.password}
           name="password"
+          type="password"
         />
         {loading ? (
           <Loader />
