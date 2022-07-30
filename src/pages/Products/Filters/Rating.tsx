@@ -7,19 +7,17 @@ import {
   Grid,
   Rating as MuiRating,
 } from "@mui/material";
+import { RatingFilterOptions } from "./types";
+import { changeRating } from "../../../redux/slices/filtersSlice";
+import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 
 const Rating = () => {
-  const [state, setState] = React.useState({
-    twoAndAbove: false,
-    threeAndAbove: false,
-    fourAndAbove: false,
-  });
+  const rating = useAppSelector((state) => state.filters.rating);
 
-  const handleChangeRating = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
+  const dispatch = useAppDispatch();
+
+  const handleChangeRating = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(changeRating(e.target.name === rating ? "" : e.target.name));
   };
 
   return (
@@ -41,9 +39,9 @@ const Rating = () => {
               sx={{ color: "#7E81A2", mr: 1 }}
               control={
                 <Checkbox
-                  checked={state.twoAndAbove}
+                  checked={rating === RatingFilterOptions.ABOVE_2}
                   onChange={handleChangeRating}
-                  name="twoAndAbove"
+                  name={RatingFilterOptions.ABOVE_2}
                   sx={{
                     color: "#fb2e86",
                     "&.Mui-checked": {
@@ -66,9 +64,9 @@ const Rating = () => {
               sx={{ color: "#7E81A2", mr: 1 }}
               control={
                 <Checkbox
-                  checked={state.threeAndAbove}
+                  checked={rating === RatingFilterOptions.ABOVE_3}
                   onChange={handleChangeRating}
-                  name="threeAndAbove"
+                  name={RatingFilterOptions.ABOVE_3}
                   sx={{
                     color: "#fb2e86",
                     "&.Mui-checked": {
@@ -91,9 +89,9 @@ const Rating = () => {
               sx={{ color: "#7E81A2", mr: 1 }}
               control={
                 <Checkbox
-                  checked={state.fourAndAbove}
+                  checked={rating === RatingFilterOptions.ABOVE_4}
                   onChange={handleChangeRating}
-                  name="fourAndAbove"
+                  name={RatingFilterOptions.ABOVE_4}
                   sx={{
                     color: "#fb2e86",
                     "&.Mui-checked": {

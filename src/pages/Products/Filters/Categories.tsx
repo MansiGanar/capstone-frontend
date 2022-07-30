@@ -5,24 +5,16 @@ import {
   FormGroup,
   Typography,
 } from "@mui/material";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { changeCategory } from "../../../redux/slices/filtersSlice";
 
 const Categories = () => {
-  const [state, setState] = React.useState({
-    kitchen: false,
-    bedroom: false,
-    bathroom: false,
-    homeOffice: false,
-    livingRoom: false,
-    outDoor: false,
-  });
+  const category = useAppSelector((state) => state.filters.category);
 
-  const handleChangeCategories = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
+  const dispatch = useAppDispatch();
+
+  const handleChangeCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(changeCategory(e.target.name === category ? "" : e.target.name));
   };
 
   return (
@@ -38,8 +30,8 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.kitchen}
-              onChange={handleChangeCategories}
+              checked={category === "kitchen"}
+              onChange={handleChangeCategory}
               name="kitchen"
               sx={{
                 color: "#fb2e86",
@@ -55,8 +47,8 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.bedroom}
-              onChange={handleChangeCategories}
+              checked={category === "bedroom"}
+              onChange={handleChangeCategory}
               name="bedroom"
               sx={{
                 color: "#fb2e86",
@@ -72,8 +64,8 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.bathroom}
-              onChange={handleChangeCategories}
+              checked={category === "bathroom"}
+              onChange={handleChangeCategory}
               name="bathroom"
               sx={{
                 color: "#fb2e86",
@@ -89,9 +81,9 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.homeOffice}
-              onChange={handleChangeCategories}
-              name="homeOffice"
+              checked={category === "office"}
+              onChange={handleChangeCategory}
+              name="office"
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {
@@ -106,9 +98,9 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.livingRoom}
-              onChange={handleChangeCategories}
-              name="livingRoom"
+              checked={category === "living-room"}
+              onChange={handleChangeCategory}
+              name="living-room"
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {
@@ -123,9 +115,9 @@ const Categories = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.outDoor}
-              onChange={handleChangeCategories}
-              name="outDoor"
+              checked={category === "outdoor"}
+              onChange={handleChangeCategory}
+              name="outdoor"
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {

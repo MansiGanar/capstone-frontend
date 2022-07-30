@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import ProductCard from "./ProductCard";
-import { getAllProducts } from "../../../react-query/queries/products/products";
-import { GET_ALL_PRODUCTS_QUERY_KEY } from "../../../utils/keys/keys";
-import { useQuery } from "react-query";
+import { useGetAllProductsQuery } from "../../../react-query/queries/products/products";
 
 const FeaturedProducts = () => {
-  const { data } = useQuery(GET_ALL_PRODUCTS_QUERY_KEY, getAllProducts);
+  const { data } = useGetAllProductsQuery();
 
   return (
     <Box sx={{ margin: "3rem 3rem 5rem", textAlign: "center" }}>

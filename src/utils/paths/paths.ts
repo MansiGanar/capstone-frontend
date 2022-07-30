@@ -5,3 +5,4 @@ export const REGISTER_USER_URL = BASE_URL + "register";
 export const LOGIN_USER_URL = BASE_URL + "login";
 
 export const GET_ALL_PRODUCTS_URL = BASE_URL + "products/all";
+export const GET_ALL_PRODUCTS_BY_CATEGORY_URL = BASE_URL + "products/category/";

@@ -6,20 +6,17 @@ import {
   Typography,
 } from "@mui/material";
 import { formatPrice } from "../../../utils/utils";
+import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
+import { changePrice } from "../../../redux/slices/filtersSlice";
+import { PriceFilterOptions } from "./types";
 
 const Price = () => {
-  const [state, setState] = React.useState({
-    under500: false,
-    price500To1000: false,
-    price1000To2000: false,
-    above2000: false,
-  });
+  const price = useAppSelector((state) => state.filters.price);
 
-  const handleChangePrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
+  const dispatch = useAppDispatch();
+
+  const handleChangePrice = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(changePrice(e.target.name === price ? "" : e.target.name));
   };
 
   return (
@@ -35,9 +32,9 @@ const Price = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.under500}
+              checked={price === PriceFilterOptions.UNDER_500}
               onChange={handleChangePrice}
-              name="under500"
+              name={PriceFilterOptions.UNDER_500}
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {
@@ -52,9 +49,9 @@ const Price = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.price500To1000}
+              checked={price === PriceFilterOptions.FIVE_HUNDRED_TO_1000}
               onChange={handleChangePrice}
-              name="price500To1000"
+              name={PriceFilterOptions.FIVE_HUNDRED_TO_1000}
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {
@@ -69,9 +66,9 @@ const Price = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.price1000To2000}
+              checked={price === PriceFilterOptions.ONE_THOUSAND_TO_2000}
               onChange={handleChangePrice}
-              name="price1000To2000"
+              name={PriceFilterOptions.ONE_THOUSAND_TO_2000}
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {
@@ -86,9 +83,9 @@ const Price = () => {
           sx={{ color: "#7E81A2" }}
           control={
             <Checkbox
-              checked={state.above2000}
+              checked={price === PriceFilterOptions.ABOVE_2000}
               onChange={handleChangePrice}
-              name="above2000"
+              name={PriceFilterOptions.ABOVE_2000}
               sx={{
                 color: "#fb2e86",
                 "&.Mui-checked": {

@@ -5,7 +5,7 @@ import {
   RegisterUserResponse,
   ILoginUser,
   LoginUserResponse,
-} from "./types.d";
+} from "./types";
 
 export const registerUser = async (
   formData: IRegisterUser

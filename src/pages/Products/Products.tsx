@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   Grid,
@@ -9,31 +9,41 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import { useQuery } from "react-query";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Filters from "./Filters/Filters";
 import ProductsList from "./ProductsList/ProductsList";
-import { getAllProducts } from "../../react-query/queries/products/products";
-import { GET_ALL_PRODUCTS_QUERY_KEY } from "../../utils/keys/keys";
 import Loader from "../../components/Loader/Loader";
+import {
+  useGetAllProductsByCategoryQuery,
+  useGetAllProductsQuery,
+} from "../../react-query/queries/products/products";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { changeSortBy } from "../../redux/slices/filtersSlice";
 
 const Products = () => {
-  const [sort, setSort] = React.useState("");
+  const sort = useAppSelector((state) => state.filters.sortBy);
+
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSort(event.target.value);
+    dispatch(changeSortBy(event.target.value));
   };
 
-  const { data, isLoading, error } = useQuery(
-    GET_ALL_PRODUCTS_QUERY_KEY,
-    getAllProducts
+  const category = useAppSelector((state) => state.filters.category);
+
+  const { isLoading, error } = useGetAllProductsQuery();
+  const { isLoading: filtersLoading } = useGetAllProductsByCategoryQuery(
+    category,
+    category !== ""
   );
+
+  const [results, setResults] = useState(0);
 
   return (
     <>
       <PageHeader title={"Shop For products"} />;
       <Box padding={"5rem 15rem 2rem 15rem"}>
-        {isLoading ? (
+        {isLoading || filtersLoading ? (
           <Loader />
         ) : (
           !error && (
@@ -44,7 +54,7 @@ const Products = () => {
                     All Products
                   </Typography>
                   <Typography sx={{ color: "#8A8FB9", fontSize: "0.75rem" }}>
-                    {data?.products.length} results
+                    {results} results
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -70,7 +80,7 @@ const Products = () => {
                   <Filters />
                 </Grid>
                 <Grid item sm={9}>
-                  <ProductsList />
+                  <ProductsList setResults={setResults} />
                 </Grid>
               </Grid>
             </>
