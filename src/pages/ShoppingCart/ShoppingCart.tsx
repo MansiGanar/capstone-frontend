@@ -3,8 +3,11 @@ import { Grid } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import CartItemsTable from "./CartItemsTable";
 import CartPaymentSummary from "./CartPaymentSummary";
+import { useAppSelector } from "../../redux/hooks";
 
 const ShoppingCart = () => {
+  const { itemsInCart } = useAppSelector((state) => state.shoppingCart);
+
   return (
     <>
       <PageHeader title={"Shopping Cart"} />;
@@ -13,7 +16,7 @@ const ShoppingCart = () => {
           <CartItemsTable />
         </Grid>
         <Grid item sm={4}>
-          <CartPaymentSummary />
+          {itemsInCart.length > 0 && <CartPaymentSummary />}
         </Grid>
       </Grid>
     </>

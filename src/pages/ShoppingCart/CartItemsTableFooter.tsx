@@ -1,40 +1,28 @@
 import React from "react";
-import { Grid, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useAppDispatch } from "../../redux/hooks";
+import { clearCartItems } from "../../redux/slices/shoppingCartSlice";
 
 const CartItemsTableFooter = () => {
+  const dispatch = useAppDispatch();
+
   return (
-    <Grid container mt={5}>
-      <Grid item sm>
-        <Button
-          variant="contained"
-          sx={{
-            borderRadius: "0",
-            textTransform: "none",
-            background: "#FF1788",
-            ":hover": { background: "#FF1788" },
-            padding: "0.3rem 1.5rem",
-            marginBottom: "1rem",
-          }}
-        >
-          Update Cart
-        </Button>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          sx={{
-            borderRadius: "0",
-            textTransform: "none",
-            background: "#FF1788",
-            ":hover": { background: "#FF1788" },
-            padding: "0.3rem 1.5rem",
-            marginBottom: "1rem",
-          }}
-        >
-          Clear Cart
-        </Button>
-      </Grid>
-    </Grid>
+    <Box mt={5} textAlign="end">
+      <Button
+        variant="contained"
+        sx={{
+          borderRadius: "0",
+          textTransform: "none",
+          background: "#FF1788",
+          ":hover": { background: "#FF1788" },
+          padding: "0.3rem 1.5rem",
+          marginBottom: "1rem",
+        }}
+        onClick={() => dispatch(clearCartItems())}
+      >
+        Clear Cart
+      </Button>
+    </Box>
   );
 };
 

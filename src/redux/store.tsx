@@ -1,8 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import filtersSlice from "./slices/filtersSlice";
+import shoppingCartSlice from "./slices/shoppingCartSlice";
 
 export const store = configureStore({
-  reducer: { filters: filtersSlice },
+  reducer: { filters: filtersSlice, shoppingCart: shoppingCartSlice },
 });
 
 export type AppDispatch = typeof store.dispatch;

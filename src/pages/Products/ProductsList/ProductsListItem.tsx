@@ -2,9 +2,15 @@ import React from "react";
 import { Grid, Typography, Rating, IconButton, Tooltip } from "@mui/material";
 import zoomIcon from "../../../assets/images/zoom-icon.svg";
 import shoppingCartColorIcon from "../../../assets/images/shopping-cart-color-icon.svg";
+import cancelIcon from "../../../assets/images/cancel-icon.svg";
 import { IProductsListItemProps } from "./types";
 import { formatPrice } from "../../../utils/utils";
 import ProductListItemDetails from "./ProductListItemDetails";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import {
+  addItemToCart,
+  removeItemFromCart,
+} from "../../../redux/slices/shoppingCartSlice";
 
 const ProductsListItem = ({ product }: IProductsListItemProps) => {
   const [open, setOpen] = React.useState(false);
@@ -16,6 +22,10 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const dispatch = useAppDispatch();
+
+  const { itemsInCart } = useAppSelector((state) => state.shoppingCart);
 
   return (
     <>
@@ -29,7 +39,6 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
             background: "#F6F5FF",
           },
         }}
-        onClick={handleClickOpen}
       >
         <Grid item sm={4} pr={1}>
           <img
@@ -63,9 +72,30 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
           </Typography>
           <Grid container alignItems="center" gap={2}>
             <Grid item>
-              <Tooltip title="Add to cart">
-                <IconButton>
-                  <img src={shoppingCartColorIcon} alt="shopping-cart" />
+              <Tooltip
+                title={
+                  itemsInCart.includes(product)
+                    ? "Remove from cart"
+                    : "Add to cart"
+                }
+              >
+                <IconButton
+                  onClick={() =>
+                    dispatch(
+                      itemsInCart.includes(product)
+                        ? removeItemFromCart(product._id)
+                        : addItemToCart(product)
+                    )
+                  }
+                >
+                  <img
+                    src={
+                      itemsInCart.includes(product)
+                        ? cancelIcon
+                        : shoppingCartColorIcon
+                    }
+                    alt="shopping-cart"
+                  />
                 </IconButton>
               </Tooltip>
             </Grid>
