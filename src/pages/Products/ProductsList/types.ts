@@ -7,3 +7,9 @@ export interface IProductsListItemProps {
 export interface IProductsListProps {
   setResults: React.Dispatch<React.SetStateAction<number>>;
 }
+
+export interface IProductListItemDetailsProps {
+  open: boolean;
+  handleClose: () => void;
+  productId: string;
+}
