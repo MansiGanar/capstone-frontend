@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Typography,
   Grid,
@@ -8,24 +8,28 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import { useAppSelector } from "../../redux/hooks";
 import { formatPrice } from "../../utils/utils";
+import { useNavigate } from "react-router-dom";
+import useCalculateTotal from "../../hooks/useCalculateTotal";
+import { useSnackbar } from "notistack";
+import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 
 const CartPaymentSummary = () => {
-  const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
+  const { total } = useCalculateTotal();
 
-  const [total, setTotal] = useState(0);
+  const { isLoggedIn } = useIsUserLoggedIn();
 
-  const calculateTotal = () => {
-    const subtotals = itemsInCart.map((item) => item.subtotal);
-    const total = subtotals.reduce((partialSum, a) => partialSum + a, 0);
-    return total;
+  const { enqueueSnackbar } = useSnackbar();
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    isLoggedIn
+      ? navigate("/checkout")
+      : enqueueSnackbar("Please login to place an order!", {
+          variant: "error",
+        });
   };
-
-  useEffect(() => {
-    setTotal(calculateTotal());
-    // eslint-disable-next-line
-  }, [itemsInCart]);
 
   return (
     <>
@@ -79,6 +83,7 @@ const CartPaymentSummary = () => {
             padding: "0.7rem",
             marginBottom: "1rem",
           }}
+          onClick={handleCheckout}
         >
           Proceed to Checkout
         </Button>

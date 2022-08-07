@@ -40,6 +40,7 @@ function App() {
               vertical: "top",
               horizontal: "right",
             }}
+            preventDuplicate
           >
             <ScrollToTop />
             <Navbar />
@@ -54,7 +55,14 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="products" element={<Products />} />
-              <Route path="/checkout" element={<CheckOut />} />
+              <Route
+                path="/checkout"
+                element={
+                  <PrivateRoute>
+                    <CheckOut />
+                  </PrivateRoute>
+                }
+              />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/faq" element={<FAQ />} />
               <Route

@@ -63,7 +63,7 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
           <Typography
             fontSize={18}
             fontWeight={500}
-            sx={{ color: "#111C85" }}
+            sx={{ color: "#111C85", wordWrap: "break-word" }}
             mb={1}
           >
             {product.name}
@@ -79,7 +79,12 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
               />
             </Grid>
           </Grid>
-          <Typography fontSize={16} sx={{ color: "#9295AA" }} mt={2} mb={2}>
+          <Typography
+            fontSize={16}
+            sx={{ color: "#9295AA", wordWrap: "break-word" }}
+            mt={2}
+            mb={2}
+          >
             {product.description}
           </Typography>
           <Grid container alignItems="center" gap={2}>

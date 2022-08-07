@@ -5,16 +5,24 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import cancelIcon from "../../assets/images/cancel-icon.svg";
 import { ICartItemsTableRowProps } from "./types";
 import { formatPrice } from "../../utils/utils";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   removeItemFromCart,
   updateItemInCart,
 } from "../../redux/slices/shoppingCartSlice";
 
 const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
-  const [quantity, setQuantity] = useState(1);
+  const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
 
-  const [subtotal, setSubTotal] = useState(0);
+  const [quantity, setQuantity] = useState(
+    itemsInCart.find((itemToFind) => itemToFind.itemInCart._id === product._id)
+      ?.quantity || 0
+  );
+
+  const [subtotal, setSubTotal] = useState(
+    itemsInCart.find((itemToFind) => itemToFind.itemInCart._id === product._id)
+      ?.subtotal || 0
+  );
 
   useEffect(() => {
     setSubTotal(quantity * parseFloat(product.price));

@@ -50,7 +50,7 @@ const ProductListItemDetails = ({
             <Typography
               fontSize={36}
               fontWeight={500}
-              sx={{ color: "#0D134E" }}
+              sx={{ color: "#0D134E", wordWrap: "break-word" }}
             >
               {data?.name}
             </Typography>
@@ -79,7 +79,11 @@ const ProductListItemDetails = ({
             <Typography
               fontSize={16}
               fontWeight={500}
-              sx={{ color: "#A9ACC6", margin: "1rem 0" }}
+              sx={{
+                color: "#A9ACC6",
+                margin: "1rem 0",
+                wordWrap: "break-word",
+              }}
             >
               {data?.description}
             </Typography>

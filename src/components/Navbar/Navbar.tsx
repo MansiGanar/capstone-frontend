@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Typography, IconButton, Badge } from "@mui/material";
 import messageIcon from "../../assets/images/message-icon.svg";
 import phoneIcon from "../../assets/images/phone-icon.svg";
 import loginIcon from "../../assets/images/login-icon.svg";
 import shoppingCartIcon from "../../assets/images/shopping-cart-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useAppSelector } from "../../redux/hooks";
+import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,13 +16,7 @@ const Navbar = () => {
     navigate("/");
   };
 
-  const token = localStorage.getItem("token");
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    token ? setIsLoggedIn(true) : setIsLoggedIn(false);
-  }, [token]);
+  const { isLoggedIn } = useIsUserLoggedIn();
 
   const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
 
@@ -88,12 +82,10 @@ const Navbar = () => {
               )}
             </Grid>
             {!isLoggedIn && (
-              <Grid item>
-                <img
-                  src={loginIcon}
-                  alt="login"
-                  style={{ marginLeft: ".5rem", marginRight: "1rem" }}
-                />
+              <Grid item sx={{ marginLeft: "1.5rem", marginRight: "1.3rem" }}>
+                <Link to="/register">
+                  <Typography>Register</Typography>
+                </Link>
               </Grid>
             )}
             {isLoggedIn && (

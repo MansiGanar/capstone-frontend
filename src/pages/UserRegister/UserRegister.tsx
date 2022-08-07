@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
 import { useSnackbar } from "notistack";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Brands from "../Home/Brands/Brands";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import { registerUser } from "../../api/authentication/authentication";
 import Loader from "../../components/Loader/Loader";
+import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 
 const UserRegister = () => {
   const defaultFormValues = {
@@ -17,6 +18,8 @@ const UserRegister = () => {
 
   const [registerFormData, setRegisterFormData] = useState(defaultFormValues);
   const [loading, setLoading] = useState(false);
+
+  const { isLoggedIn } = useIsUserLoggedIn();
 
   const navigate = useNavigate();
 
@@ -42,7 +45,7 @@ const UserRegister = () => {
       const response = await registerUser(registerFormData);
       localStorage.setItem("token", response.token);
       setRegisterFormData(defaultFormValues);
-      navigate("/");
+      navigate(-1);
     } catch (error: any) {
       localStorage.removeItem("token");
       enqueueSnackbar(
@@ -56,6 +59,10 @@ const UserRegister = () => {
     }
     setLoading(false);
   };
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>

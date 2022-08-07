@@ -11,8 +11,16 @@ import {
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import CheckOutProductDetails from "./CheckOutProductDetails";
+import useCalculateTotal from "../../hooks/useCalculateTotal";
+import { formatPrice } from "../../utils/utils";
+import { useAppSelector } from "../../redux/hooks";
+import { Link } from "react-router-dom";
 
 const CheckOut = () => {
+  const { total } = useCalculateTotal();
+
+  const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
+
   return (
     <>
       <PageHeader title={"Check out"} />;
@@ -114,25 +122,26 @@ const CheckOut = () => {
               />
             </Grid>
           </Grid>
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#FF1788",
-              ":hover": { background: "#FF1788" },
-              padding: "0.7rem 2rem",
-              marginTop: "1rem",
-            }}
-          >
-            Continue Shopping
-          </Button>
+          <Link to="/products">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#FF1788",
+                ":hover": { background: "#FF1788" },
+                padding: "0.7rem 2rem",
+                marginTop: "1rem",
+              }}
+            >
+              Continue Shopping
+            </Button>
+          </Link>
         </Grid>
         <Grid item sm={5} paddingLeft={"5rem"}>
-          <CheckOutProductDetails />
-          <CheckOutProductDetails />
-          <CheckOutProductDetails />
-          <CheckOutProductDetails />
+          {itemsInCart.map((shoppingCartItem) => (
+            <CheckOutProductDetails shoppingCartItem={shoppingCartItem} />
+          ))}
           <Box
             sx={{
               background: "#F4F4FC",
@@ -144,43 +153,16 @@ const CheckOut = () => {
             <Grid container>
               <Grid item sm>
                 <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                  Subtotal:
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                  £219.00
-                </Typography>
-              </Grid>
-            </Grid>
-            <Divider sx={{ mt: 1, mb: 4 }} />
-            <Grid container>
-              <Grid item sm>
-                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
                   Totals:
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                  £219.00
+                  {formatPrice(total.toString())}
                 </Typography>
               </Grid>
             </Grid>
             <Divider sx={{ mt: 1, mb: 3 }} />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  sx={{
-                    color: "#19D16F",
-                    "&.Mui-checked": {
-                      color: "#19D16F",
-                    },
-                  }}
-                />
-              }
-              label="Shipping & taxes calculated at checkout"
-              style={{ color: "#8A91AB", marginBottom: "1.25rem" }}
-            />
             <Button
               variant="contained"
               fullWidth
@@ -193,7 +175,7 @@ const CheckOut = () => {
                 marginBottom: "1rem",
               }}
             >
-              Proceed to Checkout
+              Submit and Place Order
             </Button>
           </Box>
         </Grid>
