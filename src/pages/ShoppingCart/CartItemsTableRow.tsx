@@ -6,18 +6,31 @@ import cancelIcon from "../../assets/images/cancel-icon.svg";
 import { ICartItemsTableRowProps } from "./types";
 import { formatPrice } from "../../utils/utils";
 import { useAppDispatch } from "../../redux/hooks";
-import { removeItemFromCart } from "../../redux/slices/shoppingCartSlice";
+import {
+  removeItemFromCart,
+  updateItemInCart,
+} from "../../redux/slices/shoppingCartSlice";
 
 const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
   const [quantity, setQuantity] = useState(1);
 
-  const [total, setTotal] = useState(0);
+  const [subtotal, setSubTotal] = useState(0);
 
   useEffect(() => {
-    setTotal(quantity * parseFloat(product.price));
+    setSubTotal(quantity * parseFloat(product.price));
   }, [quantity, product]);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      updateItemInCart({
+        itemInCart: product,
+        quantity,
+        subtotal,
+      })
+    );
+  }, [dispatch, product, quantity, subtotal]);
 
   return (
     <>
@@ -98,7 +111,7 @@ const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
         </Grid>
         <Grid item sm={2} textAlign="end">
           <Typography fontSize={14} lineHeight={1.5} sx={{ color: "#15245E" }}>
-            {formatPrice(total.toString())}
+            {formatPrice(subtotal.toString())}
           </Typography>
         </Grid>
       </Grid>

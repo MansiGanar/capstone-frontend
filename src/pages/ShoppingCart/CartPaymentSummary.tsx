@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Typography,
   Grid,
@@ -7,10 +7,26 @@ import {
   Checkbox,
   Button,
   Box,
-  TextField,
 } from "@mui/material";
+import { useAppSelector } from "../../redux/hooks";
+import { formatPrice } from "../../utils/utils";
 
 const CartPaymentSummary = () => {
+  const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
+
+  const [total, setTotal] = useState(0);
+
+  const calculateTotal = () => {
+    const subtotals = itemsInCart.map((item) => item.subtotal);
+    const total = subtotals.reduce((partialSum, a) => partialSum + a, 0);
+    return total;
+  };
+
+  useEffect(() => {
+    setTotal(calculateTotal());
+    // eslint-disable-next-line
+  }, [itemsInCart]);
+
   return (
     <>
       <Typography
@@ -28,25 +44,12 @@ const CartPaymentSummary = () => {
         <Grid container>
           <Grid item sm>
             <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-              Subtotal:
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-              £219.00
-            </Typography>
-          </Grid>
-        </Grid>
-        <Divider sx={{ mt: 1, mb: 4 }} />
-        <Grid container>
-          <Grid item sm>
-            <Typography fontSize={18} sx={{ color: "#1D3178" }}>
               Totals:
             </Typography>
           </Grid>
           <Grid item>
             <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-              £219.00
+              {formatPrice(total.toString())}
             </Typography>
           </Grid>
         </Grid>
@@ -78,42 +81,6 @@ const CartPaymentSummary = () => {
           }}
         >
           Proceed to Checkout
-        </Button>
-      </Box>
-      <Typography
-        fontSize={20}
-        fontWeight={700}
-        sx={{ color: "#1D3178" }}
-        mb={6}
-        textAlign="center"
-        mt={6}
-      >
-        Calculate Shipping Cost
-      </Typography>
-      <Box
-        sx={{ background: "#F4F4FC", padding: "2rem", borderRadius: ".5rem" }}
-      >
-        <TextField label="Country" variant="standard" fullWidth />
-        <TextField
-          label="City"
-          variant="standard"
-          fullWidth
-          sx={{ margin: "1rem 0" }}
-        />
-        <TextField label="Post Code" variant="standard" fullWidth />
-        <Button
-          variant="contained"
-          sx={{
-            borderRadius: ".15rem",
-            textTransform: "none",
-            background: "#FF1788",
-            ":hover": { background: "#FF1788" },
-            padding: "0.7rem",
-            marginBottom: "1rem",
-            marginTop: "2.5rem",
-          }}
-        >
-          Calculate Shipping
         </Button>
       </Box>
     </>

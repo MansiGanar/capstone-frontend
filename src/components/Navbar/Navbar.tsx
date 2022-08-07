@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Grid, Typography, IconButton } from "@mui/material";
+import { Grid, Typography, IconButton, Badge } from "@mui/material";
 import messageIcon from "../../assets/images/message-icon.svg";
 import phoneIcon from "../../assets/images/phone-icon.svg";
 import loginIcon from "../../assets/images/login-icon.svg";
 import shoppingCartIcon from "../../assets/images/shopping-cart-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useAppSelector } from "../../redux/hooks";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ const Navbar = () => {
   useEffect(() => {
     token ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [token]);
+
+  const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
 
   return (
     <>
@@ -106,7 +109,18 @@ const Navbar = () => {
         <Grid item>
           <Link to="/shopping-cart">
             <IconButton>
-              <img src={shoppingCartIcon} alt="shopping-cart" />
+              <Badge
+                badgeContent={itemsInCart.length}
+                sx={{
+                  color: "white",
+                  "& .BaseBadge-badge": {
+                    backgroundColor: "#FB578E",
+                  },
+                }}
+                showZero
+              >
+                <img src={shoppingCartIcon} alt="shopping-cart" />
+              </Badge>
             </IconButton>
           </Link>
         </Grid>

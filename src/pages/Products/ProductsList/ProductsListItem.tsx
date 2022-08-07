@@ -27,6 +27,18 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
 
   const { itemsInCart } = useAppSelector((state) => state.shoppingCart);
 
+  const shoppingCartItem = {
+    itemInCart: product,
+    quantity: 1,
+    subtotal: parseFloat(product.price),
+  };
+
+  const checkIfItemExists = () => {
+    return itemsInCart.some(
+      (item) => item.itemInCart._id === shoppingCartItem.itemInCart._id
+    );
+  };
+
   return (
     <>
       <Grid
@@ -73,26 +85,20 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
           <Grid container alignItems="center" gap={2}>
             <Grid item>
               <Tooltip
-                title={
-                  itemsInCart.includes(product)
-                    ? "Remove from cart"
-                    : "Add to cart"
-                }
+                title={checkIfItemExists() ? "Remove from cart" : "Add to cart"}
               >
                 <IconButton
                   onClick={() =>
                     dispatch(
-                      itemsInCart.includes(product)
+                      checkIfItemExists()
                         ? removeItemFromCart(product._id)
-                        : addItemToCart(product)
+                        : addItemToCart(shoppingCartItem)
                     )
                   }
                 >
                   <img
                     src={
-                      itemsInCart.includes(product)
-                        ? cancelIcon
-                        : shoppingCartColorIcon
+                      checkIfItemExists() ? cancelIcon : shoppingCartColorIcon
                     }
                     alt="shopping-cart"
                   />

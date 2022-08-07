@@ -14,7 +14,10 @@ const CartItemsTable = () => {
         <>
           <CartItemsTableHeader />
           {itemsInCart.map((item) => (
-            <CartItemsTableRow product={item} key={item._id} />
+            <CartItemsTableRow
+              product={item.itemInCart}
+              key={item.itemInCart._id}
+            />
           ))}
           <CartItemsTableFooter />
         </>
