@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
 import clock from "../../assets/images/clock.svg";
 import tickMark from "../../assets/images/tick-mark.svg";
 import checkList from "../../assets/images/checklist.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
+import { Link, Navigate, useLocation } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { clearCartItems } from "../../redux/slices/shoppingCartSlice";
+import { ILocationProps } from "./types";
 
 const OrderPlacedSuccessfully = () => {
+  const dispatch = useAppDispatch();
+
+  const location = useLocation();
+  const state = location.state as ILocationProps;
+
+  useEffect(() => {
+    state?.shouldClearCart && dispatch(clearCartItems());
+  }, [state, dispatch]);
+
+  if (!state?.shouldClearCart) {
+    return <Navigate to="/products" />;
+  }
+
   return (
     <>
       <PageHeader title="Order successful" />
@@ -29,29 +46,31 @@ const OrderPlacedSuccessfully = () => {
                 padding: "1rem",
               }}
             >
-              Your Order is Completed!
+              Your order has been placed successfully!
             </Typography>
             <Typography sx={{ color: "#8D92A7", fontSize: "1rem" }}>
               Thank you for your order! Your order is being processed and will
-              be completed within 3-6 hours.
+              be completed within 3-6 days.
             </Typography>
             <Typography sx={{ color: "#8D92A7", fontSize: "1rem" }}>
               You will receive an email confirmation when your order is
               completed.
             </Typography>
-            <Button
-              variant="contained"
-              sx={{
-                borderRadius: "0",
-                textTransform: "none",
-                background: "#FF1788",
-                ":hover": { background: "#FF1788" },
-                marginTop: "1rem",
-                padding: ".5rem 2rem",
-              }}
-            >
-              Continue Shopping
-            </Button>
+            <Link to="/products">
+              <Button
+                variant="contained"
+                sx={{
+                  borderRadius: "0",
+                  textTransform: "none",
+                  background: "#FF1788",
+                  ":hover": { background: "#FF1788" },
+                  marginTop: "1rem",
+                  padding: ".5rem 2rem",
+                }}
+              >
+                Continue Shopping
+              </Button>
+            </Link>
           </Grid>
         </Grid>
         <Box sx={{ textAlign: "end", padding: "0 15rem 0" }}>

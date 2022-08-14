@@ -12,7 +12,7 @@ const CheckOutProductDetails = ({
         <img
           src={shoppingCartItem.itemInCart.image}
           alt="bagImg"
-          style={{ width: "6.3rem", height: "5.188rem" }}
+          style={{ width: "6.3rem" }}
         />
       </Grid>
       <Grid item sm={6}>

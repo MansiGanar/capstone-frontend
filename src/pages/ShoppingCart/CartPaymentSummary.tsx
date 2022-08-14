@@ -48,7 +48,7 @@ const CartPaymentSummary = () => {
         <Grid container>
           <Grid item sm>
             <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-              Totals:
+              Total:
             </Typography>
           </Grid>
           <Grid item>

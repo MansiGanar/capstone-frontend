@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface IPageHeader {
   title: string;
@@ -20,10 +21,9 @@ const PageHeader = ({ title }: IPageHeader) => {
       </Typography>
       <Grid container sx={{ padding: "0 15rem 5rem 15rem" }}>
         <Grid item>
-          <Typography sx={{ marginRight: "0.5rem" }}>Home</Typography>
-        </Grid>
-        <Grid item>
-          <Typography sx={{ marginRight: "0.5rem" }}>Pages</Typography>
+          <Link to="/">
+            <Typography sx={{ marginRight: "0.5rem" }}>Home</Typography>
+          </Link>
         </Grid>
         <Grid item>
           <Typography sx={{ color: "#FB2E86" }}>{title}</Typography>

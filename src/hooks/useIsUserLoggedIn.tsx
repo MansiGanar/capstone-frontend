@@ -9,7 +9,7 @@ const useIsUserLoggedIn = () => {
     token ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [token]);
 
-  return { isLoggedIn };
+  return { isLoggedIn, token };
 };
 
 export default useIsUserLoggedIn;

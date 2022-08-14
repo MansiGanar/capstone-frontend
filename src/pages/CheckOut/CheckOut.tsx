@@ -1,25 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Typography,
-  TextField,
-  FormControlLabel,
-  Checkbox,
   Button,
   Divider,
   Box,
+  SelectChangeEvent,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import CheckOutProductDetails from "./CheckOutProductDetails";
 import useCalculateTotal from "../../hooks/useCalculateTotal";
 import { formatPrice } from "../../utils/utils";
 import { useAppSelector } from "../../redux/hooks";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import CheckOutForm from "./CheckOutForm";
+import { usePlaceAnOrderMutation } from "../../react-query/mutations/orders/orders";
+import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
+import { useSnackbar } from "notistack";
 
 const CheckOut = () => {
+  const navigate = useNavigate();
+
   const { total } = useCalculateTotal();
 
   const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    streetName: "",
+    city: "",
+    country: "",
+    postalCode: "",
+    totalCost: total.toString(),
+    orderItems: itemsInCart,
+  });
+
+  const handleChangeFormData = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const [deliveryMethod, setDeliveryMethod] = React.useState("standard");
+
+  const handleChangeDeliveryMethod = (event: SelectChangeEvent) => {
+    setDeliveryMethod(event.target.value as string);
+  };
+
+  const { token } = useIsUserLoggedIn();
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const placeAnOrder = usePlaceAnOrderMutation(token || "");
+
+  const handlePlaceOrder = () => {
+    placeAnOrder.mutate(
+      { ...formData, deliveryMethod },
+      {
+        onSuccess: () => {
+          navigate("/order-placed-successfully", {
+            state: { shouldClearCart: true },
+          });
+        },
+        onError: (error: any) => {
+          enqueueSnackbar(
+            error?.response?.data?.msg ||
+              error?.response?.data?.errors[0]?.msg ||
+              "An error occurred. Please try again.",
+            {
+              variant: "error",
+            }
+          );
+        },
+      }
+    );
+  };
+
+  if (itemsInCart.length <= 0) {
+    return <Navigate to="/shopping-cart" />;
+  }
 
   return (
     <>
@@ -43,100 +107,12 @@ const CheckOut = () => {
           >
             Cart/ Information/ Shipping/ Payment
           </Typography>
-          <TextField
-            id="standard-basic"
-            label="Email or mobile phone number"
-            variant="standard"
-            fullWidth
+          <CheckOutForm
+            formData={formData}
+            handleChangeFormData={handleChangeFormData}
+            deliveryMethod={deliveryMethod}
+            handleChangeDeliveryMethod={handleChangeDeliveryMethod}
           />
-          <FormControlLabel
-            control={
-              <Checkbox
-                sx={{
-                  color: "#19D16F",
-                  "&.Mui-checked": {
-                    color: "#19D16F",
-                  },
-                }}
-              />
-            }
-            label="Keep me up to date on news and exclusive offers"
-            style={{ color: "#8A91AB", marginBottom: "4rem" }}
-          />
-          <Typography
-            sx={{ color: "#1D3178", fontSize: "1.5rem", padding: "1rem 0" }}
-          >
-            Shipping Address
-          </Typography>
-          <Grid container>
-            <Grid item sm={6} pr={"0.7rem"}>
-              <TextField
-                id="outlined-basic"
-                label="First Name"
-                variant="outlined"
-                fullWidth
-                sx={{ marginBottom: "1rem" }}
-              />
-            </Grid>
-            <Grid item sm={6}>
-              <TextField
-                id="outlined-basic"
-                label="Last Name"
-                variant="outlined"
-                fullWidth
-                sx={{ marginBottom: "1rem" }}
-              />
-            </Grid>
-          </Grid>
-          <TextField
-            id="outlined-basic"
-            label="Address"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="City"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem" }}
-          />
-          <Grid container>
-            <Grid item sm={6} pr={"0.7rem"}>
-              <TextField
-                id="outlined-basic"
-                label="Country"
-                variant="outlined"
-                fullWidth
-                sx={{ marginBottom: "1rem" }}
-              />
-            </Grid>
-            <Grid item sm={6}>
-              <TextField
-                id="outlined-basic"
-                label="Postal Code"
-                variant="outlined"
-                fullWidth
-                sx={{ marginBottom: "1rem" }}
-              />
-            </Grid>
-          </Grid>
-          <Link to="/products">
-            <Button
-              variant="contained"
-              sx={{
-                borderRadius: "0",
-                textTransform: "none",
-                background: "#FF1788",
-                ":hover": { background: "#FF1788" },
-                padding: "0.7rem 2rem",
-                marginTop: "1rem",
-              }}
-            >
-              Continue Shopping
-            </Button>
-          </Link>
         </Grid>
         <Grid item sm={5} paddingLeft={"5rem"}>
           {itemsInCart.map((shoppingCartItem) => (
@@ -153,7 +129,7 @@ const CheckOut = () => {
             <Grid container>
               <Grid item sm>
                 <Typography fontSize={18} sx={{ color: "#1D3178" }}>
-                  Totals:
+                  Subtotal:
                 </Typography>
               </Grid>
               <Grid item>
@@ -163,6 +139,37 @@ const CheckOut = () => {
               </Grid>
             </Grid>
             <Divider sx={{ mt: 1, mb: 3 }} />
+            <Grid container>
+              <Grid item sm>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  Total:
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography fontSize={18} sx={{ color: "#1D3178" }}>
+                  {formatPrice(total.toString())}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Divider sx={{ mt: 1, mb: 3 }} />
+            <Link to="/products">
+              <Button
+                variant="contained"
+                fullWidth
+                sx={{
+                  borderRadius: "0",
+                  textTransform: "none",
+                  background: "#FF1788",
+                  ":hover": { background: "#FF1788" },
+                  padding: "0.7rem 2rem",
+                  marginTop: "1rem",
+                  marginBottom: "1.5rem",
+                }}
+                disabled={placeAnOrder.isLoading}
+              >
+                Continue Shopping
+              </Button>
+            </Link>
             <Button
               variant="contained"
               fullWidth
@@ -174,6 +181,8 @@ const CheckOut = () => {
                 padding: "0.7rem",
                 marginBottom: "1rem",
               }}
+              onClick={handlePlaceOrder}
+              disabled={placeAnOrder.isLoading}
             >
               Submit and Place Order
             </Button>

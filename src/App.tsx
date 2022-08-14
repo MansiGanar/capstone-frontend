@@ -48,7 +48,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route
                 path="/order-placed-successfully"
-                element={<OrderPlacedSuccessfully />}
+                element={
+                  <PrivateRoute>
+                    <OrderPlacedSuccessfully />
+                  </PrivateRoute>
+                }
               />
               <Route path="/login" element={<UserLogin />} />
               <Route path="/register" element={<UserRegister />} />
