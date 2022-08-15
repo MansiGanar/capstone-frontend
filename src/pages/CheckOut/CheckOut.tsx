@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   Typography,
@@ -36,6 +36,10 @@ const CheckOut = () => {
     totalCost: total.toString(),
     orderItems: itemsInCart,
   });
+
+  useEffect(() => {
+    setFormData({ ...formData, totalCost: total.toString() });
+  }, [formData, total]);
 
   const handleChangeFormData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

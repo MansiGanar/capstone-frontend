@@ -1,11 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import facebookIcon from "../../assets/images/facebook-icon.svg";
 import instagramIcon from "../../assets/images/instagram-icon.svg";
 import twitterIcon from "../../assets/images/twitter-icon.svg";
+import { sendNewsletterSignupEmail } from "../../api/emails/emails";
+import { useSnackbar } from "notistack";
 
 const Footer = () => {
+  const [emailId, setEmailId] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleSubmit = async (
+    event:
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      await sendNewsletterSignupEmail({ emailId });
+      setEmailId("");
+      enqueueSnackbar("Thank you for subscribing to our newsletter!", {
+        variant: "success",
+      });
+    } catch (error: any) {
+      enqueueSnackbar(
+        error?.response?.data?.msg ||
+          error?.response?.data?.errors[0]?.msg ||
+          "An error occurred. Please try again.",
+        {
+          variant: "error",
+        }
+      );
+    }
+    setLoading(false);
+  };
+
   return (
     <>
       <Grid
@@ -20,7 +54,14 @@ const Footer = () => {
           <TextField
             label="Email address"
             variant="outlined"
-            sx={{ margin: "2rem 0" }}
+            sx={{
+              margin: "2rem 0",
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "0",
+              },
+            }}
+            value={emailId}
+            onChange={(e) => setEmailId(e.target.value)}
           />
           <Button
             variant="contained"
@@ -34,6 +75,8 @@ const Footer = () => {
               marginTop: "2rem",
               height: "3.5rem",
             }}
+            disabled={loading}
+            onClick={handleSubmit}
           >
             Sign up
           </Button>

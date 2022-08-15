@@ -6,15 +6,14 @@ const useCalculateTotal = () => {
 
   const [total, setTotal] = useState(0);
 
-  const calculateTotal = () => {
-    const subtotals = itemsInCart.map((item) => item.subtotal);
-    const total = subtotals.reduce((partialSum, a) => partialSum + a, 0);
-    return total;
-  };
-
   useEffect(() => {
+    const calculateTotal = () => {
+      const subtotals = itemsInCart.map((item) => item.subtotal);
+      const total = subtotals.reduce((partialSum, a) => partialSum + a, 0);
+      return total;
+    };
+
     setTotal(calculateTotal());
-    // eslint-disable-next-line
   }, [itemsInCart]);
 
   return { total };
