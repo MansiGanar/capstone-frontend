@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Typography, Grid, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import furnitureImg from "../../assets/images/history.jpg";
 import truckIcon from "../../assets/images/truck-icon.svg";
 import cashbackIcon from "../../assets/images/cashback-icon.svg";
@@ -11,15 +18,27 @@ import clientImg3 from "../../assets/images/clientImg3.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
 
 const AboutUs = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xl"));
+
+  const matchesSmallLaptops = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <PageHeader title={"About us"} />;
-      <Grid container padding={"5rem 15rem"}>
+      <Grid container padding={matches ? "5rem 10rem" : "5rem 15rem"}>
         <Grid item sm={6}>
           <img
             src={furnitureImg}
             alt="furnitureImg"
-            style={{ width: "30rem" }}
+            style={{
+              width: matchesTablets
+                ? "20rem"
+                : matchesSmallLaptops
+                ? "25rem"
+                : "30rem",
+            }}
           />
         </Grid>
         <Grid item sm={6}>

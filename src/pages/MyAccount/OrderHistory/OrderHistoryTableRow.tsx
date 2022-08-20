@@ -46,7 +46,7 @@ const OrderHistoryTableRow = ({ orderDetails }: IOrderHistoryTableRowProps) => {
             {`${orderDetails.firstName} ${orderDetails.lastName}`}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item sm={1}>
           <Button
             variant="contained"
             sx={{
@@ -62,7 +62,7 @@ const OrderHistoryTableRow = ({ orderDetails }: IOrderHistoryTableRowProps) => {
             View
           </Button>
         </Grid>
-        <Grid item>
+        <Grid item sm={1}>
           <Button
             variant="contained"
             sx={{

@@ -57,11 +57,7 @@ const FAQForm = () => {
   };
 
   return (
-    <Grid
-      item
-      sm={6}
-      sx={{ padding: "2rem 0 2rem 2rem", background: "#F8F8FD" }}
-    >
+    <Grid item sm={6} sx={{ padding: "2rem", background: "#F8F8FD" }}>
       <Typography
         sx={{
           marginBottom: "2rem",

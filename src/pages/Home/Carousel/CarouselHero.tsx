@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import banner1 from "../../../assets/images/hero-banner-1.jpg";
 import banner2 from "../../../assets/images/hero-banner-2.jpg";
 import banner3 from "../../../assets/images/hero-banner-3.jpg";
@@ -9,6 +9,9 @@ import { heroImageStyles } from "./styled";
 import { Link } from "react-router-dom";
 
 const CarouselHero = () => {
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <Carousel showStatus={false} showArrows={false}>
       <Box
@@ -18,7 +21,14 @@ const CarouselHero = () => {
           backgroundImage: `url(${banner1})`,
         }}
       >
-        <Box sx={{ padding: "9rem 50rem 0 10rem", textAlign: "start" }}>
+        <Box
+          sx={{
+            padding: matchesTablets
+              ? "9rem 35rem 0 5rem"
+              : "9rem 50rem 0 10rem",
+            textAlign: "start",
+          }}
+        >
           <Typography
             fontWeight={700}
             fontSize={16}
@@ -27,12 +37,16 @@ const CarouselHero = () => {
           >
             Best Furniture For Your Castle....
           </Typography>
-          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+          <Typography
+            fontWeight={700}
+            fontSize={matches ? 40 : 53}
+            sx={{ color: "black" }}
+          >
             New Furniture Collection
           </Typography>
           <Typography
             fontWeight={700}
-            fontSize={53}
+            fontSize={matches ? 40 : 53}
             sx={{ color: "black" }}
             mb={2}
           >
@@ -70,7 +84,7 @@ const CarouselHero = () => {
           backgroundImage: `url(${banner2})`,
         }}
       >
-        <Box sx={{ padding: "5rem 0 0 45rem" }}>
+        <Box sx={{ padding: matches ? "5rem 0 0 32rem" : "5rem 0 0 45rem" }}>
           <Typography
             fontWeight={700}
             fontSize={16}
@@ -79,12 +93,16 @@ const CarouselHero = () => {
           >
             Best Furniture For Your Castle....
           </Typography>
-          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+          <Typography
+            fontWeight={700}
+            fontSize={matches ? 40 : 53}
+            sx={{ color: "black" }}
+          >
             New Furniture Collection
           </Typography>
           <Typography
             fontWeight={700}
-            fontSize={53}
+            fontSize={matches ? 40 : 53}
             sx={{ color: "black" }}
             mb={2}
           >
@@ -131,12 +149,16 @@ const CarouselHero = () => {
           >
             Best Furniture For Your Castle....
           </Typography>
-          <Typography fontWeight={700} fontSize={53} sx={{ color: "black" }}>
+          <Typography
+            fontWeight={700}
+            fontSize={matches ? 40 : 53}
+            sx={{ color: "black" }}
+          >
             New Furniture Collection
           </Typography>
           <Typography
             fontWeight={700}
-            fontSize={53}
+            fontSize={matches ? 40 : 53}
             sx={{ color: "black" }}
             mb={2}
           >

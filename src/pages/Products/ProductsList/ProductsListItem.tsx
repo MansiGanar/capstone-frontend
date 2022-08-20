@@ -52,14 +52,14 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
           },
         }}
       >
-        <Grid item sm={4} pr={1}>
+        <Grid item md={4} pr={1}>
           <img
             src={product.image}
             alt="products list item"
-            style={{ height: "10.313rem", width: "15.75rem" }}
+            style={{ width: "95%" }}
           />
         </Grid>
-        <Grid item padding="1rem" sm={8}>
+        <Grid item padding="1rem" md={8}>
           <Typography
             fontSize={18}
             fontWeight={500}
@@ -124,6 +124,8 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
         open={open}
         handleClose={handleClose}
         productId={product._id}
+        shoppingCartItem={shoppingCartItem}
+        checkIfItemExists={checkIfItemExists}
       />
     </>
   );

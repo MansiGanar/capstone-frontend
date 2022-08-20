@@ -1,13 +1,18 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xl"));
+
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <PageHeader title={"Contact us"} />;
-      <Grid container padding="5rem 15rem">
+      <Grid container padding={matchesTablets ? "5rem" : "5rem 15rem"}>
         <Grid item sm={6} pr={12}>
           <Typography
             sx={{
@@ -73,10 +78,16 @@ const Contact = () => {
           >
             Contact Way
           </Typography>
-          <Grid container marginBottom="1rem">
-            <Grid item sx={{ color: "#8A8FB9" }} sm={6}>
+          <Grid container marginBottom={matches ? 3 : "1rem"}>
+            <Grid
+              item
+              sx={{ color: "#8A8FB9" }}
+              md={12}
+              sm={6}
+              mb={matches ? 3 : 0}
+            >
               <Grid container>
-                <Grid item>
+                <Grid item sm="auto">
                   <Box
                     sx={{
                       height: "2.813rem",
@@ -97,7 +108,7 @@ const Contact = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item sx={{ color: "#8A8FB9" }} sm={6}>
+            <Grid item sx={{ color: "#8A8FB9" }} md={12} sm={6}>
               <Grid container>
                 <Grid item></Grid>
                 <Box
@@ -116,8 +127,14 @@ const Contact = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid container mt={6}>
-            <Grid item sx={{ color: "#8A8FB9" }} sm={6}>
+          <Grid container mt={matches ? 0 : 6}>
+            <Grid
+              item
+              sx={{ color: "#8A8FB9" }}
+              md={12}
+              sm={6}
+              mb={matches ? 3 : 0}
+            >
               <Grid container>
                 <Grid item>
                   <Box
@@ -136,7 +153,7 @@ const Contact = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item sx={{ color: "#8A8FB9" }} sm={6}>
+            <Grid item sx={{ color: "#8A8FB9" }} md={12} sm={6}>
               <Grid container>
                 <Grid item>
                   <Box

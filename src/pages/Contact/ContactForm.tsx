@@ -1,4 +1,10 @@
-import { Grid, Typography, TextField, Button } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { sendContactFormEmail } from "../../api/emails/emails";
@@ -58,8 +64,13 @@ const ContactForm = () => {
     setLoading(false);
   };
 
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
-    <Grid container padding="2rem 15rem 5rem">
+    <Grid
+      container
+      padding={matchesTablets ? "2rem 5rem 5rem" : "2rem 15rem 5rem"}
+    >
       <Grid item sm={6} paddingRight="1rem">
         <Typography
           sx={{
@@ -133,7 +144,10 @@ const ContactForm = () => {
         <img
           src={contactPageImg}
           alt="contact-page-img"
-          style={{ width: "32.5rem", padding: "4rem 0" }}
+          style={{
+            width: matchesTablets ? "26rem" : "32.5rem",
+            padding: "4rem 0",
+          }}
         />
       </Grid>
     </Grid>

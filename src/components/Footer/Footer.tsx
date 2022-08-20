@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Grid, Typography, TextField, Button } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import facebookIcon from "../../assets/images/facebook-icon.svg";
 import instagramIcon from "../../assets/images/instagram-icon.svg";
@@ -40,11 +46,17 @@ const Footer = () => {
     setLoading(false);
   };
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <Grid
         container
-        sx={{ padding: "5rem 15rem", background: "#EEEFFB" }}
+        sx={{
+          padding: matchesTablets || matches ? "5rem" : "5rem 15rem",
+          background: "#EEEFFB",
+        }}
         gap={12}
       >
         <Grid item>
@@ -155,11 +167,19 @@ const Footer = () => {
               Contact
             </Typography>
           </Link>
+          <Link to="/about-us">
+            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+              About Us
+            </Typography>
+          </Link>
         </Grid>
       </Grid>
       <Grid
         container
-        sx={{ background: "#E7E4F8", padding: ".5rem 15rem" }}
+        sx={{
+          background: "#E7E4F8",
+          padding: matchesTablets || matches ? ".5rem 5rem" : ".5rem 15rem",
+        }}
         alignItems="center"
       >
         <Grid item sm>

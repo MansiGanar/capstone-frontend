@@ -8,6 +8,7 @@ import {
   SelectChangeEvent,
   Typography,
   Box,
+  useMediaQuery,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Filters from "./Filters/Filters";
@@ -39,10 +40,19 @@ const Products = () => {
 
   const [results, setResults] = useState(0);
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <PageHeader title={"Shop For products"} />;
-      <Box padding={"5rem 15rem 2rem 15rem"}>
+      <Box
+        padding={
+          matchesTablets || matches
+            ? "5rem 5rem 2rem 5rem"
+            : "5rem 15rem 2rem 15rem"
+        }
+      >
         {isLoading || filtersLoading ? (
           <Loader />
         ) : (

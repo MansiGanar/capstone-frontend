@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  TextField,
+  useMediaQuery,
+} from "@mui/material";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Brands from "../Home/Brands/Brands";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -65,6 +71,8 @@ const UserLogin = () => {
     setOpenDialog(false);
   };
 
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
@@ -74,8 +82,8 @@ const UserLogin = () => {
       <PageHeader title="Log in to your account" />
       <Box
         sx={{
-          width: "28%",
-          margin: " 5rem auto",
+          width: matchesTablets ? "40%" : "28%",
+          margin: "5rem auto",
           padding: "2rem",
           boxShadow: "0 0 1.563rem 0.625rem #F8F8FB",
         }}

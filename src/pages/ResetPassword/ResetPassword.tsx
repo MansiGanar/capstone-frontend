@@ -1,4 +1,10 @@
-import { Box, Typography, TextField, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
@@ -73,6 +79,9 @@ const ResetPassword = () => {
     setLoading(false);
   };
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
@@ -82,7 +91,7 @@ const ResetPassword = () => {
       <PageHeader title="Reset your account's password" />
       <Box
         sx={{
-          width: "28%",
+          width: matches || matchesTablets ? "40%" : "28%",
           margin: " 5rem auto",
           padding: "2rem",
           boxShadow: "0 0 1.563rem 0.625rem #F8F8FB",

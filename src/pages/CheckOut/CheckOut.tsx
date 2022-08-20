@@ -6,6 +6,7 @@ import {
   Divider,
   Box,
   SelectChangeEvent,
+  useMediaQuery,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import CheckOutProductDetails from "./CheckOutProductDetails";
@@ -85,6 +86,10 @@ const CheckOut = () => {
     );
   };
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesLg = useMediaQuery("(max-width:1440px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   if (itemsInCart.length <= 0) {
     return <Navigate to="/shopping-cart" />;
   }
@@ -92,10 +97,13 @@ const CheckOut = () => {
   return (
     <>
       <PageHeader title={"Check out"} />;
-      <Grid container padding={"5rem 15rem"}>
+      <Grid
+        container
+        padding={matches || matchesLg || matchesTablets ? "5rem" : "5rem 15rem"}
+      >
         <Grid
           item
-          sm={7}
+          sm={matchesTablets || matches ? 12 : 7}
           padding={"2rem"}
           sx={{ background: "#F8F8FD", borderRadius: ".5rem" }}
         >
@@ -118,7 +126,12 @@ const CheckOut = () => {
             handleChangeDeliveryMethod={handleChangeDeliveryMethod}
           />
         </Grid>
-        <Grid item sm={5} paddingLeft={"5rem"}>
+        <Grid
+          item
+          sm={matchesTablets || matches ? 12 : 5}
+          paddingLeft={matchesTablets || matches ? 0 : "5rem"}
+          paddingTop={matchesTablets || matches ? "2rem" : 0}
+        >
           {itemsInCart.map((shoppingCartItem) => (
             <CheckOutProductDetails shoppingCartItem={shoppingCartItem} />
           ))}

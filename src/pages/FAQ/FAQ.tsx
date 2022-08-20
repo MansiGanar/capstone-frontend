@@ -1,14 +1,21 @@
 import React from "react";
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import FAQForm from "./FAQForm";
 
 const FAQ = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xl"));
+
   return (
     <>
       <PageHeader title={"FAQ"} />;
-      <Grid container padding={"2rem 15rem"} justifyContent={"center"}>
+      <Grid
+        container
+        padding={matches ? "2rem 5rem" : "2rem 15rem"}
+        justifyContent={"center"}
+      >
         <Grid item sm={6}>
           <Typography
             sx={{

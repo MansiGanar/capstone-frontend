@@ -14,6 +14,11 @@ import { useGetProductByIdQuery } from "../../../react-query/queries/products/pr
 import Loader from "../../../components/Loader/Loader";
 import { formatPrice } from "../../../utils/utils";
 import cancelIcon from "../../../assets/images/cancel-icon.svg";
+import { useAppDispatch } from "../../../redux/hooks";
+import {
+  removeItemFromCart,
+  addItemToCart,
+} from "../../../redux/slices/shoppingCartSlice";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -28,8 +33,12 @@ const ProductListItemDetails = ({
   open,
   handleClose,
   productId,
+  shoppingCartItem,
+  checkIfItemExists,
 }: IProductListItemDetailsProps) => {
   const { data, isLoading } = useGetProductByIdQuery(productId, open);
+
+  const dispatch = useAppDispatch();
 
   return (
     <Dialog
@@ -94,8 +103,15 @@ const ProductListItemDetails = ({
                 marginBottom: "1rem",
               }}
               variant="outlined"
+              onClick={() =>
+                dispatch(
+                  checkIfItemExists()
+                    ? removeItemFromCart(productId)
+                    : addItemToCart(shoppingCartItem)
+                )
+              }
             >
-              Add to Cart
+              {checkIfItemExists() ? "Remove from cart" : "Add to cart"}
             </Button>
             <Typography
               fontSize={16}

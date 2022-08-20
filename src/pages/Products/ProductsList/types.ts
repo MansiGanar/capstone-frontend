@@ -12,4 +12,10 @@ export interface IProductListItemDetailsProps {
   open: boolean;
   handleClose: () => void;
   productId: string;
+  shoppingCartItem: {
+    itemInCart: Product;
+    quantity: number;
+    subtotal: number;
+  };
+  checkIfItemExists: () => boolean;
 }

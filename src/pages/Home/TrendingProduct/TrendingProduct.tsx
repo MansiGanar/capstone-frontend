@@ -1,9 +1,11 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import trendingProduct from "../../../assets/images/trending-product.svg";
 import { formatPrice } from "../../../utils/utils";
 
 const TrendingProduct = () => {
+  const matches = useMediaQuery("(max-width:1280px)");
+
   return (
     <Grid
       container
@@ -11,13 +13,17 @@ const TrendingProduct = () => {
       justifyContent={"center"}
       sx={{ background: "#F1F0FF" }}
     >
-      <Grid item>
-        <img src={trendingProduct} alt="trending-product" />
+      <Grid item sm={4}>
+        <img
+          src={trendingProduct}
+          alt="trending-product"
+          style={{ width: matches ? "99%" : "100%" }}
+        />
       </Grid>
-      <Grid item>
+      <Grid item sm={8}>
         <Typography
           sx={{ color: "#1A0B5B" }}
-          fontSize={42}
+          fontSize={matches ? 31 : 42}
           fontWeight={700}
           mb={3}
         >

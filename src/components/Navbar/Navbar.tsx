@@ -1,5 +1,11 @@
 import React from "react";
-import { Grid, Typography, IconButton, Badge } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  IconButton,
+  Badge,
+  useMediaQuery,
+} from "@mui/material";
 import messageIcon from "../../assets/images/message-icon.svg";
 import phoneIcon from "../../assets/images/phone-icon.svg";
 import loginIcon from "../../assets/images/login-icon.svg";
@@ -20,12 +26,19 @@ const Navbar = () => {
 
   const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <Grid
         container
         alignItems="center"
-        sx={{ background: "#7E33E0", color: "white", padding: ".5rem 15rem" }}
+        sx={{
+          background: "#7E33E0",
+          color: "white",
+          padding: matches || matchesTablets ? ".5rem 5rem" : ".5rem 15rem",
+        }}
       >
         <Grid item>
           <Grid container alignItems="center">
@@ -117,7 +130,11 @@ const Navbar = () => {
           </Link>
         </Grid>
       </Grid>
-      <Grid container alignItems={"center"} sx={{ padding: "1rem 15rem" }}>
+      <Grid
+        container
+        alignItems={"center"}
+        sx={{ padding: matches || matchesTablets ? "1rem 5rem" : "1rem 15rem" }}
+      >
         <Grid item>
           <Link to="/">
             <Typography

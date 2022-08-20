@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
 import Loader from "../../components/Loader/Loader";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -21,10 +21,13 @@ const MyAccount = () => {
   const { isLoading: isOrderHistoryLoading, data: orderHistoryData } =
     useGetOrderHistoryQuery(token || "", true);
 
+  const matches = useMediaQuery("(max-width:1280px)");
+  const matchesTablets = useMediaQuery("(max-width:1024px)");
+
   return (
     <>
       <PageHeader title={"My Account"} />;
-      <Box padding={"2rem 15rem"}>
+      <Box padding={matches || matchesTablets ? "2rem 5rem" : "2rem 15rem"}>
         {isUserDetailsLoading || isOrderHistoryLoading ? (
           <Loader />
         ) : (
