@@ -7,7 +7,7 @@ export interface Envelope {
   to: string[];
 }
 
-export interface SendNewsletterSignupEmailResponse {
+export interface SendEmailResponse {
   accepted: string[];
   rejected: any[];
   envelopeTime: number;
@@ -16,4 +16,8 @@ export interface SendNewsletterSignupEmailResponse {
   response: string;
   envelope: Envelope;
   messageId: string;
+}
+
+export interface ISendPasswordResetEmail {
+  emailId: string;
 }

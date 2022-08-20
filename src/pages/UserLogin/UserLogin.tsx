@@ -7,6 +7,7 @@ import { useSnackbar } from "notistack";
 import { loginUser } from "../../api/authentication/authentication";
 import Loader from "../../components/Loader/Loader";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
+import ForgotPasswordDialog from "./ForgotPasswordDialog";
 
 const UserLogin = () => {
   const defaultFormValues = {
@@ -58,6 +59,12 @@ const UserLogin = () => {
     setLoading(false);
   };
 
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClose = () => {
+    setOpenDialog(false);
+  };
+
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
@@ -104,7 +111,7 @@ const UserLogin = () => {
           onChange={handleChange}
           type="password"
         />
-        <Link to="#">
+        <Link to="#" onClick={() => setOpenDialog(true)}>
           <Typography sx={{ color: "#9096B2", marginBottom: "1rem" }}>
             Forgot your password?
           </Typography>
@@ -137,6 +144,7 @@ const UserLogin = () => {
         </Link>
       </Box>
       <Brands />
+      <ForgotPasswordDialog open={openDialog} handleClose={handleClose} />
     </>
   );
 };

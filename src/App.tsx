@@ -21,6 +21,7 @@ import useJWTExpiry from "./hooks/useJWTExpiry";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { queryClient } from "./react-query/config";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 function App() {
   const { isExpired } = useJWTExpiry();
@@ -58,6 +59,12 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="products" element={<Products />} />
+              <Route path="/shopping-cart" element={<ShoppingCart />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route
+                path="/reset-password/:token"
+                element={<ResetPassword />}
+              />
               <Route
                 path="/checkout"
                 element={
@@ -66,8 +73,6 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route path="/shopping-cart" element={<ShoppingCart />} />
-              <Route path="/faq" element={<FAQ />} />
               <Route
                 path="/my-account"
                 element={

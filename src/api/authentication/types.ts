@@ -17,3 +17,9 @@ export type RegisterUserResponse = {
 export type LoginUserResponse = {
   token: string;
 };
+
+export interface IUpdatePassword {
+  password: string;
+}
+
+export interface UpdatePasswordResponse {}

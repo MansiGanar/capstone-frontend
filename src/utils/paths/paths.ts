@@ -15,6 +15,10 @@ export const CANCEL_AN_ORDER_URL = BASE_URL + "orders";
 
 export const SEND_NEWSLETTER_SIGNUP_EMAIL_USER_URL =
   BASE_URL_WITHOUT_USER + "emails/newsletter-signup";
+export const SEND_PASSWORD_RESET_EMAIL_USER_URL =
+  BASE_URL_WITHOUT_USER + "emails/reset-password/user";
+export const UPDATE_PASSWORD_URL =
+  BASE_URL_WITHOUT_USER + "emails/update-password/user";
 
 export const GET_USER_DETAILS_URL = BASE_URL + "profile";
 export const EDIT_PERSONAL_DETAILS_URL = BASE_URL + "edit";
