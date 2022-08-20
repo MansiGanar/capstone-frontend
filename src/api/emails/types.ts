@@ -21,3 +21,16 @@ export interface SendEmailResponse {
 export interface ISendPasswordResetEmail {
   emailId: string;
 }
+
+export interface ISendContactFormEmail {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export interface ISendFAQFormEmail {
+  name: string;
+  subject: string;
+  message: string;
+}

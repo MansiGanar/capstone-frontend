@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Typography, Grid, Button, TextField } from "@mui/material";
-import contactPageImg from "../../assets/images/contactpage.svg";
+import { Box, Typography, Grid } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
@@ -158,75 +158,7 @@ const Contact = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container padding="2rem 15rem 5rem">
-        <Grid item sm={6} paddingRight="1rem">
-          <Typography
-            sx={{
-              fontSize: "2.25rem",
-              fontWeight: "700",
-              color: "#151875",
-              marginBottom: "2rem",
-            }}
-          >
-            Get In Touch
-          </Typography>
-          <Typography sx={{ color: "#8A8FB9", marginBottom: "1rem" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis
-            neque ultrices tristique amet erat vitae eget dolor los vitae
-            lobortis quis bibendum quam.
-          </Typography>
-          <TextField
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Subject"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Type your message"
-            multiline
-            rows={4}
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "2rem" }}
-          />
-
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#FF1788",
-              ":hover": { background: "#FF1788" },
-              padding: "0.5rem 2rem",
-            }}
-          >
-            Send
-          </Button>
-        </Grid>
-        <Grid item sm={6}>
-          <img
-            src={contactPageImg}
-            alt="contact-page-img"
-            style={{ width: "32.5rem", padding: "4rem 0" }}
-          />
-        </Grid>
-      </Grid>
+      <ContactForm />
     </>
   );
 };

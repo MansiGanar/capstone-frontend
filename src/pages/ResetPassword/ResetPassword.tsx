@@ -17,6 +17,7 @@ const ResetPassword = () => {
 
   const [resetPasswordFormData, setResetPasswordFormData] =
     useState(defaultFormValues);
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();

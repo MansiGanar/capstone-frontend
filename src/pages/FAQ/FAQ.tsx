@@ -1,7 +1,8 @@
 import React from "react";
-import { Typography, Grid, Button, TextField } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import Brands from "../Home/Brands/Brands";
 import PageHeader from "../../components/PageHeader/PageHeader";
+import FAQForm from "./FAQForm";
 
 const FAQ = () => {
   return (
@@ -84,58 +85,7 @@ const FAQ = () => {
             sed tristique mollis vitae, consequat gravida sagittis.
           </Typography>
         </Grid>
-        <Grid
-          item
-          sm={6}
-          sx={{ padding: "2rem 0 2rem 2rem", background: "#F8F8FD" }}
-        >
-          <Typography
-            sx={{
-              marginBottom: "2rem",
-              textAlign: "center",
-              color: "#1D3178",
-              fontSize: "2.25rem",
-              fontWeight: "500",
-            }}
-          >
-            Ask a Question
-          </Typography>
-          <TextField
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem", background: "#ffffff" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Subject"
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "1rem", background: "#ffffff" }}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Type your message"
-            multiline
-            rows={6}
-            variant="outlined"
-            fullWidth
-            sx={{ marginBottom: "2rem", background: "#ffffff" }}
-          />
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#FF1788",
-              ":hover": { background: "#FF1788" },
-              padding: "0.5rem 2rem",
-            }}
-          >
-            Send
-          </Button>
-        </Grid>
+        <FAQForm />
       </Grid>
       <Brands />
     </>

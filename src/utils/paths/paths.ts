@@ -19,6 +19,10 @@ export const SEND_PASSWORD_RESET_EMAIL_USER_URL =
   BASE_URL_WITHOUT_USER + "emails/reset-password/user";
 export const UPDATE_PASSWORD_URL =
   BASE_URL_WITHOUT_USER + "emails/update-password/user";
+export const SEND_CONTACT_FORM_EMAIL_URL =
+  BASE_URL_WITHOUT_USER + "emails/contact-form";
+export const SEND_FAQ_FORM_EMAIL_URL =
+  BASE_URL_WITHOUT_USER + "emails/faq-form";
 
 export const GET_USER_DETAILS_URL = BASE_URL + "profile";
 export const EDIT_PERSONAL_DETAILS_URL = BASE_URL + "edit";
