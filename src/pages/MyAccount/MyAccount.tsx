@@ -19,7 +19,7 @@ const MyAccount = () => {
     refetch: refetchUserDetails,
   } = useGetUserDetailsQuery(token || "");
   const { isLoading: isOrderHistoryLoading, data: orderHistoryData } =
-    useGetOrderHistoryQuery(token || "");
+    useGetOrderHistoryQuery(token || "", true);
 
   return (
     <>
@@ -31,7 +31,6 @@ const MyAccount = () => {
           <>
             <PersonalDetails
               userDetailsData={userDetailsData}
-              token={token}
               refetch={refetchUserDetails}
             />
             <OrderHistory orderHistoryData={orderHistoryData} />

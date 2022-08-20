@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 import OrderHistoryTableHeader from "./OrderHistoryTableHeader";
 import OrderHistoryTableRow from "./OrderHistoryTableRow";
-import { IOrderHistoryTableProps } from "../types";
+import { IOrderHistoryTableProps } from "./types";
 
 const OrderHistoryTable = ({ orderHistoryData }: IOrderHistoryTableProps) => {
   return (

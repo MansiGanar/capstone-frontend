@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import OrderHistoryTable from "./OrderHistoryTable";
-import { IOrderHistoryProps } from "../types";
+import { IOrderHistoryProps } from "./types";
 
 const OrderHistory = ({ orderHistoryData }: IOrderHistoryProps) => {
   return (

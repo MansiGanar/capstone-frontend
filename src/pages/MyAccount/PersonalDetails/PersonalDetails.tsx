@@ -1,14 +1,16 @@
 import { Typography, Box, Grid, Button, TextField } from "@mui/material";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
+import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
 import { useEditPersonalDetailsMutation } from "../../../react-query/mutations/user/user";
-import { IPersonalDetailsProps } from "../types";
+import { IPersonalDetailsProps } from "./types";
 
 const PersonalDetails = ({
   userDetailsData,
-  token,
   refetch,
 }: IPersonalDetailsProps) => {
+  const { token } = useIsUserLoggedIn();
+
   const [isEdit, setIsEdit] = useState(false);
 
   const [personalDetails, setPersonalDetails] = useState({

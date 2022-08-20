@@ -1,14 +1,7 @@
 import {
   GetOrderHistoryResponse,
-  GetUserDetailsResponse,
   OrderHistoryItem,
-} from "../../react-query/queries/user/types";
-
-export interface IPersonalDetailsProps {
-  refetch: any;
-  token: string | null;
-  userDetailsData?: GetUserDetailsResponse;
-}
+} from "../../../react-query/queries/user/types";
 
 export interface IOrderHistoryProps {
   orderHistoryData?: GetOrderHistoryResponse;
@@ -20,4 +13,16 @@ export interface IOrderHistoryTableProps {
 
 export interface IOrderHistoryTableRowProps {
   orderDetails: OrderHistoryItem;
+}
+
+export interface IOrderDetailsDialogProps {
+  open: boolean;
+  handleClose: () => void;
+  orderId: string;
+}
+
+export interface ICancelOrderConfirmationDialogProps {
+  open: boolean;
+  handleClose: () => void;
+  orderId: string;
 }
