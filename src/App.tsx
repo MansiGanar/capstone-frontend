@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { SnackbarProvider } from "notistack";
 import Footer from "./components/Footer/Footer";
@@ -20,6 +20,7 @@ import Products from "./pages/Products/Products";
 import useJWTExpiry from "./hooks/useJWTExpiry";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { queryClient } from "./react-query/config";
 
 function App() {
   const { isExpired } = useJWTExpiry();
@@ -27,8 +28,6 @@ function App() {
   useEffect(() => {
     isExpired && localStorage.clear();
   }, [isExpired]);
-
-  const queryClient = new QueryClient();
 
   return (
     <>

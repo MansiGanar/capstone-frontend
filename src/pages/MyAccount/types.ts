@@ -5,6 +5,8 @@ import {
 } from "../../react-query/queries/user/types";
 
 export interface IPersonalDetailsProps {
+  refetch: any;
+  token: string | null;
   userDetailsData?: GetUserDetailsResponse;
 }
 

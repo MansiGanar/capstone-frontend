@@ -13,8 +13,11 @@ import PersonalDetails from "./PersonalDetails/PersonalDetails";
 const MyAccount = () => {
   const { token } = useIsUserLoggedIn();
 
-  const { isLoading: isUserDetailsLoading, data: userDetailsData } =
-    useGetUserDetailsQuery(token || "");
+  const {
+    isLoading: isUserDetailsLoading,
+    data: userDetailsData,
+    refetch: refetchUserDetails,
+  } = useGetUserDetailsQuery(token || "");
   const { isLoading: isOrderHistoryLoading, data: orderHistoryData } =
     useGetOrderHistoryQuery(token || "");
 
@@ -26,7 +29,11 @@ const MyAccount = () => {
           <Loader />
         ) : (
           <>
-            <PersonalDetails userDetailsData={userDetailsData} />
+            <PersonalDetails
+              userDetailsData={userDetailsData}
+              token={token}
+              refetch={refetchUserDetails}
+            />
             <OrderHistory orderHistoryData={orderHistoryData} />
           </>
         )}

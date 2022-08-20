@@ -16,5 +16,6 @@ export const SEND_NEWSLETTER_SIGNUP_EMAIL_USER_URL =
   BASE_URL_WITHOUT_USER + "emails/newsletter-signup";
 
 export const GET_USER_DETAILS_URL = BASE_URL + "profile";
+export const EDIT_PERSONAL_DETAILS_URL = BASE_URL + "edit";
 
 export const GET_ORDER_HISTORY_URL = BASE_URL + "orders/all";
