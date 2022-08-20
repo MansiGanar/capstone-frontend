@@ -1,9 +1,9 @@
 import React from "react";
+import { Box, Typography } from "@mui/material";
+import { useAppSelector } from "../../../redux/hooks";
+import CartItemsTableFooter from "./CartItemsTableFooter";
 import CartItemsTableHeader from "./CartItemsTableHeader";
 import CartItemsTableRow from "./CartItemsTableRow";
-import { Box, Typography } from "@mui/material";
-import CartItemsTableFooter from "./CartItemsTableFooter";
-import { useAppSelector } from "../../redux/hooks";
 
 const CartItemsTable = () => {
   const { itemsInCart } = useAppSelector((state) => state.shoppingCart);

@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import PageHeader from "../../components/PageHeader/PageHeader";
-import CartItemsTable from "./CartItemsTable";
-import CartPaymentSummary from "./CartPaymentSummary";
+import CartItemsTable from "./CartItems/CartItemsTable";
+import CartPaymentSummary from "./CartPayment/CartPaymentSummary";
 import { useAppSelector } from "../../redux/hooks";
 
 const ShoppingCart = () => {

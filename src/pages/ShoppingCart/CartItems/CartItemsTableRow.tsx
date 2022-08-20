@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Grid, Typography, IconButton, Badge, Divider } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import cancelIcon from "../../assets/images/cancel-icon.svg";
-import { ICartItemsTableRowProps } from "./types";
-import { formatPrice } from "../../utils/utils";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import cancelIcon from "../../../assets/images/cancel-icon.svg";
+import { ICartItemsTableRowProps } from "../types";
+import { formatPrice } from "../../../utils/utils";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
-  removeItemFromCart,
   updateItemInCart,
-} from "../../redux/slices/shoppingCartSlice";
+  removeItemFromCart,
+} from "../../../redux/slices/shoppingCartSlice";
 
 const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
   const itemsInCart = useAppSelector((state) => state.shoppingCart.itemsInCart);

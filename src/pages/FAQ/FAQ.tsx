@@ -133,7 +133,7 @@ const FAQ = () => {
               padding: "0.5rem 2rem",
             }}
           >
-            Send Mail
+            Send
           </Button>
         </Grid>
       </Grid>

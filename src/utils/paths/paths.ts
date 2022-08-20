@@ -14,3 +14,7 @@ export const PLACE_AN_ORDER_URL = BASE_URL + "orders";
 
 export const SEND_NEWSLETTER_SIGNUP_EMAIL_USER_URL =
   BASE_URL_WITHOUT_USER + "emails/newsletter-signup";
+
+export const GET_USER_DETAILS_URL = BASE_URL + "profile";
+
+export const GET_ORDER_HISTORY_URL = BASE_URL + "orders/all";

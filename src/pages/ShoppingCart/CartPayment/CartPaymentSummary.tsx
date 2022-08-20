@@ -8,11 +8,11 @@ import {
   Button,
   Box,
 } from "@mui/material";
-import { formatPrice } from "../../utils/utils";
+import { formatPrice } from "../../../utils/utils";
 import { useNavigate } from "react-router-dom";
-import useCalculateTotal from "../../hooks/useCalculateTotal";
+import useCalculateTotal from "../../../hooks/useCalculateTotal";
 import { useSnackbar } from "notistack";
-import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
+import useIsUserLoggedIn from "../../../hooks/useIsUserLoggedIn";
 
 const CartPaymentSummary = () => {
   const { total } = useCalculateTotal();

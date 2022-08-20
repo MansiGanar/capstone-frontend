@@ -216,7 +216,7 @@ const Contact = () => {
               padding: "0.5rem 2rem",
             }}
           >
-            Send Mail
+            Send
           </Button>
         </Grid>
         <Grid item sm={6}>

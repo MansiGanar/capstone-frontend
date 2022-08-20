@@ -4,3 +4,7 @@ export const formatPrice = (price: string) => {
     currency: "EUR",
   }).format(parseFloat(price));
 };
+
+export const formatOrderId = (orderIdFromDB: string) => {
+  return `#${orderIdFromDB.toUpperCase().slice(0, 9)}`;
+};

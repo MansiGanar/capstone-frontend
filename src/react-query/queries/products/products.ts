@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import {
   GET_ALL_PRODUCTS_QUERY_KEY,
   GET_ALL_PRODUCTS_BY_CATEGORY_QUERY_KEY,
-  GET_PRODUCT_BY_ID_URL_QUERY_KEY,
+  GET_PRODUCT_BY_ID_QUERY_KEY,
 } from "../../../utils/keys/keys";
 import {
   GET_ALL_PRODUCTS_URL,
@@ -49,7 +49,7 @@ export const useGetProductByIdQuery = (productId: string, enabled: boolean) => {
   };
 
   return useQuery(
-    [GET_PRODUCT_BY_ID_URL_QUERY_KEY, productId],
+    [GET_PRODUCT_BY_ID_QUERY_KEY, productId],
     () => apiQuery(productId),
     { ...commonQueryConfig, enabled }
   );

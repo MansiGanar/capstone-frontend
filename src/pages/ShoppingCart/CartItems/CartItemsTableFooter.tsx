@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
-import { useAppDispatch } from "../../redux/hooks";
-import { clearCartItems } from "../../redux/slices/shoppingCartSlice";
+import { useAppDispatch } from "../../../redux/hooks";
+import { clearCartItems } from "../../../redux/slices/shoppingCartSlice";
 
 const CartItemsTableFooter = () => {
   const dispatch = useAppDispatch();
