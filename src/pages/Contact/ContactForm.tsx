@@ -83,9 +83,8 @@ const ContactForm = () => {
           Get In Touch
         </Typography>
         <Typography sx={{ color: "#8A8FB9", marginBottom: "1rem" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
-          ultrices tristique amet erat vitae eget dolor los vitae lobortis quis
-          bibendum quam.
+          Hello, You can contact us by filling the information below incase of
+          any problem.
         </Typography>
         <TextField
           label="Name"

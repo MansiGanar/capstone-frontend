@@ -16,6 +16,7 @@ import Offer from "../Home/WhatComfyDecorOffers/Offer";
 import clientImg1 from "../../assets/images/clientImg1.svg";
 import clientImg3 from "../../assets/images/clientImg3.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const theme = useTheme();
@@ -53,26 +54,26 @@ const AboutUs = () => {
             Business, History
           </Typography>
           <Typography sx={{ color: "#8A8FB9" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            cursus metus aliquam eleifend. Platea dictumst quisque sagittis
-            purus sit amet volutpat consequat. Nulla pellentesque dignissim enim
-            sit.
+            Our shop was setup in 1930 in Lublin way before the world war 2
+            started. Most of the furtuiner in the concentration camp were made
+            by us and are still in museum in poland.
           </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              borderRadius: "0",
-              textTransform: "none",
-              background: "#fb2e86",
-              ":hover": { background: "#fb2e86", boxShadow: "none" },
-              boxShadow: "none",
-              padding: ".5rem 1rem",
-              margin: "1rem 0",
-            }}
-          >
-            Contact Us
-          </Button>
+          <Link to="/contact">
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: "0",
+                textTransform: "none",
+                background: "#fb2e86",
+                ":hover": { background: "#fb2e86", boxShadow: "none" },
+                boxShadow: "none",
+                padding: ".5rem 1rem",
+                margin: "1rem 0",
+              }}
+            >
+              Contact Us
+            </Button>
+          </Link>
         </Grid>
       </Grid>
       <Box textAlign="center">
@@ -91,29 +92,29 @@ const AboutUs = () => {
         <Grid item>
           <Offer
             icon={truckIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Free Delivery"
+            subtitle="Free Delivey in Poland"
           />
         </Grid>
         <Grid item>
           <Offer
             icon={cashbackIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Cash on delivery"
+            subtitle="Cash on delivery as the payment method available without adintional charges."
           />
         </Grid>
         <Grid item>
           <Offer
             icon={qualityIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Best in class wood"
+            subtitle="We use worlds best quality of the wood for making our products."
           />
         </Grid>
         <Grid item>
           <Offer
             icon={supportIcon}
             title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            subtitle="We are always there to help you."
           />
         </Grid>
       </Grid>

@@ -96,7 +96,7 @@ const Footer = () => {
             Contact Info
           </Typography>
           <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-            17 Princess Road, London, Greater London NW1 8JR, UK
+            ul. Unicka, Lublin, Poland
           </Typography>
         </Grid>
         <Grid item>

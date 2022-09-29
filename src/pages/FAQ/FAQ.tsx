@@ -35,13 +35,14 @@ const FAQ = () => {
               padding: "1rem 0",
             }}
           >
-            Eu dictumst cum at sed euismood condimentum?
+            How long does it take for the products to be made and deliver?
           </Typography>
           <Typography
             sx={{ fontSize: "1rem", color: "#A1ABCC", lineHeight: "1.875rem" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            sed tristique mollis vitae, consequat gravida sagittis.
+            Production and delivery time varies depending on the item(s) ordered
+            and the location. We always aim to deliver within 4 weeks from the
+            date of the order.
           </Typography>
           <Typography
             sx={{
@@ -51,13 +52,14 @@ const FAQ = () => {
               padding: "1rem 0",
             }}
           >
-            Magna bibendum est fermentum eros.
+            My items haven't arrived yet. What can I do?
           </Typography>
           <Typography
             sx={{ fontSize: "1rem", color: "#A1ABCC", lineHeight: "1.875rem" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            sed tristique mollis vitae, consequat gravida sagittis.
+            Please allow up to 4 weeks from the day you received the order
+            confirmation. For any additional concern, please do not hesitate to
+            email us at comfy.decor@gmail.com
           </Typography>
           <Typography
             sx={{
@@ -67,13 +69,12 @@ const FAQ = () => {
               padding: "1rem 0",
             }}
           >
-            Odio muskana hak eris conseekin sceleton?
+            How long is your warranty?
           </Typography>
           <Typography
             sx={{ fontSize: "1rem", color: "#A1ABCC", lineHeight: "1.875rem" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            sed tristique mollis vitae, consequat gravida sagittis.
+            All products are backed by a three year warranty.
           </Typography>
           <Typography
             sx={{
@@ -83,13 +84,12 @@ const FAQ = () => {
               padding: "1rem 0",
             }}
           >
-            Elit id blandit sabara boi velit gua mara?
+            Are your prices in Euro (€)?
           </Typography>
           <Typography
             sx={{ fontSize: "1rem", color: "#A1ABCC", lineHeight: "1.875rem" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            sed tristique mollis vitae, consequat gravida sagittis.
+            All prices are in Euro (€).
           </Typography>
         </Grid>
         <FAQForm />

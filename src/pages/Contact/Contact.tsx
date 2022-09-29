@@ -25,11 +25,9 @@ const Contact = () => {
             Information About Us
           </Typography>
           <Typography sx={{ color: "#8A8FB9" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Id
-            cursus metus aliquam eleifend. Platea dictumst quisque sagittis
-            purus sit amet volutpat consequat. Nulla pellentesque dignissim enim
-            sit.
+            We are a home furnishing brand that offers affordable price, stylish
+            design and comfort to people. Our vision is to create better
+            conditions for everyday life for many people.
           </Typography>
           <Grid container mt={5}>
             <Grid item>
