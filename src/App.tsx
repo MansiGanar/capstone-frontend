@@ -22,6 +22,7 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { queryClient } from "./react-query/config";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import ChatBot from "./pages/chatBot/ChatBot";
 
 function App() {
   const { isExpired } = useJWTExpiry();
@@ -44,6 +45,7 @@ function App() {
           >
             <ScrollToTop />
             <Navbar />
+            <ChatBot />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route
@@ -58,7 +60,7 @@ function App() {
               <Route path="/register" element={<UserRegister />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="products" element={<Products />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/faq" element={<FAQ />} />
               <Route

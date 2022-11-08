@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Typography, IconButton, Badge, Divider } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  IconButton,
+  Badge,
+  Divider,
+  Button,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import cancelIcon from "../../../assets/images/cancel-icon.svg";
@@ -46,7 +53,7 @@ const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
         <Grid item sm={6}>
           <Grid container alignItems="center" gap={3}>
             <Grid item>
-              <Badge
+              {/* <Badge
                 color="secondary"
                 badgeContent={
                   <img
@@ -66,15 +73,16 @@ const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
                   },
                 }}
               >
-                <img
-                  src={product.image}
-                  alt="cart-item"
-                  style={{
-                    width: "5.188rem",
-                    borderRadius: ".15rem",
-                  }}
-                />
-              </Badge>
+               
+              </Badge> */}
+              <img
+                src={product.image}
+                alt="cart-item"
+                style={{
+                  width: "5.2rem",
+                  borderRadius: ".15rem",
+                }}
+              />
             </Grid>
             <Grid item>
               <Typography
@@ -84,6 +92,21 @@ const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
               >
                 {product.name}
               </Typography>
+              <Button
+                variant="contained"
+                sx={{
+                  borderRadius: "0",
+                  textTransform: "none",
+                  background: "#FF1788",
+                  ":hover": { background: "#FF1788" },
+                  marginTop: "0.4rem",
+                  padding: "0.1rem 0.5rem",
+                  // marginBottom: "1rem",
+                }}
+                onClick={() => dispatch(removeItemFromCart(product._id))}
+              >
+                Remove
+              </Button>
             </Grid>
           </Grid>
         </Grid>
@@ -103,16 +126,16 @@ const CartItemsTableRow = ({ product }: ICartItemsTableRowProps) => {
             </Grid>
             <Grid item>
               <Typography
-                fontSize={12}
+                fontSize={13}
                 lineHeight={1.5}
-                sx={{ color: "#BEBFC2" }}
+                sx={{ color: "#343e5c" }}
               >
                 {quantity}
               </Typography>
             </Grid>
             <Grid item>
               <IconButton onClick={() => setQuantity(quantity + 1)}>
-                <AddIcon fontSize="small" sx={{ color: "#BEBFC2" }} />
+                <AddIcon fontSize="small" sx={{ color: "#b4bacd" }} />
               </IconButton>
             </Grid>
           </Grid>

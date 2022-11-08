@@ -12,8 +12,11 @@ import instagramIcon from "../../assets/images/instagram-icon.svg";
 import twitterIcon from "../../assets/images/twitter-icon.svg";
 import { sendNewsletterSignupEmail } from "../../api/emails/emails";
 import { useSnackbar } from "notistack";
+import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 
 const Footer = () => {
+  const { isLoggedIn } = useIsUserLoggedIn();
+
   const [emailId, setEmailId] = useState("");
 
   const [loading, setLoading] = useState(false);
@@ -101,32 +104,32 @@ const Footer = () => {
         </Grid>
         <Grid item>
           <Typography mb={3}>Categories</Typography>
-          <Link to="/kitchen">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Kitchen
             </Typography>
           </Link>
-          <Link to="/bedroom">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Bedroom
             </Typography>
           </Link>
-          <Link to="/living-room">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Living Room
             </Typography>
           </Link>
-          <Link to="/office">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Office
             </Typography>
           </Link>
-          <Link to="/bathroom">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Bathroom
             </Typography>
           </Link>
-          <Link to="/outdoor">
+          <Link to="/products">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Outdoor
             </Typography>
@@ -152,16 +155,24 @@ const Footer = () => {
               Browse the Shop
             </Typography>
           </Link>
-          <Link to="/register">
-            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-              Create an account
-            </Typography>
-          </Link>
-          <Link to="/login">
-            <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
-              Login
-            </Typography>
-          </Link>
+
+          {isLoggedIn ? (
+            ""
+          ) : (
+            <>
+              <Link to="/register">
+                <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+                  Create an account
+                </Typography>
+              </Link>
+              <Link to="/login">
+                <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
+                  Login
+                </Typography>
+              </Link>
+            </>
+          )}
+
           <Link to="/contact">
             <Typography sx={{ color: "#8A8FB9", lineHeight: "2rem" }}>
               Contact

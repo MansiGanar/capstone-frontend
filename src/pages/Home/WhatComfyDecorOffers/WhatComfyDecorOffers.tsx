@@ -21,29 +21,29 @@ const WhatComfyDecorOffers = () => {
         <Grid item>
           <Offer
             icon={truckIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Free Delivery"
+            subtitle="Free Delivey in Poland"
           />
         </Grid>
         <Grid item>
           <Offer
             icon={cashbackIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Cash on delivery"
+            subtitle="Cash on delivery as the payment method available without adintional charges."
           />
         </Grid>
         <Grid item>
           <Offer
             icon={qualityIcon}
-            title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            title="Best in class wood"
+            subtitle="We use worlds best quality of the wood for making our products."
           />
         </Grid>
         <Grid item>
           <Offer
             icon={supportIcon}
             title="24/7 Support"
-            subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida."
+            subtitle="We are always there to help you."
           />
         </Grid>
       </Grid>

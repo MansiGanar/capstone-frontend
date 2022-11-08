@@ -31,18 +31,18 @@ const TrendingProduct = () => {
         </Typography>
         <ul>
           <li style={{ color: "#F52B70", fontSize: "2rem" }}>
-            <Typography sx={{ color: "#ACABC3" }} mb={1}>
+            <Typography sx={{ color: "#32465F " }} mb={1}>
               All frames constructed with hardwood solids and laminates
             </Typography>
           </li>
           <li style={{ color: "#2B2BF5", fontSize: "2rem" }}>
-            <Typography sx={{ color: "#ACABC3" }} mb={1}>
+            <Typography sx={{ color: "#32465F " }} mb={1}>
               Reinforced with double wood dowels, glue, screw - nails corner
               blocks and machine nails
             </Typography>
           </li>
           <li style={{ color: "#2BF5CC", fontSize: "2rem" }}>
-            <Typography sx={{ color: "#ACABC3" }}>
+            <Typography sx={{ color: "#32465F " }}>
               Arms, backs and seats are structurally reinforced
             </Typography>
           </li>

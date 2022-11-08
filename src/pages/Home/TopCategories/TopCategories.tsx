@@ -28,28 +28,28 @@ const TopCategories = () => {
           <TopCategory
             image={kitchenCardImg}
             categoryName="Kitchen"
-            link="/kitchen"
+            link="/products"
           />
         </Grid>
         <Grid item>
           <TopCategory
             image={bathroomCardImg}
             categoryName="Bathroom"
-            link="/bathroom"
+            link="/products"
           />
         </Grid>
         <Grid item>
           <TopCategory
             image={officeCardImg}
             categoryName="Office"
-            link="/office"
+            link="/products"
           />
         </Grid>
         <Grid item>
           <TopCategory
             image={livingRoomCardImg}
             categoryName="Living Room"
-            link="/living-room"
+            link="/products"
           />
         </Grid>
       </Grid>

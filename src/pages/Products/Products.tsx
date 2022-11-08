@@ -58,33 +58,14 @@ const Products = () => {
         ) : (
           !error && (
             <>
-              <Grid container sx={{ marginBottom: "4rem" }}>
-                <Grid item sm>
-                  <Typography sx={{ color: "#151875", fontSize: "1.375rem" }}>
-                    All Products
-                  </Typography>
-                  <Typography sx={{ color: "#8A8FB9", fontSize: "0.75rem" }}>
-                    {results} results
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel>Sort By:</InputLabel>
-                    <Select
-                      value={sort}
-                      label="Sort By:"
-                      onChange={handleChange}
-                    >
-                      <MenuItem value={"highToLow"}>
-                        Price - High to Low
-                      </MenuItem>
-                      <MenuItem value={"lowToHigh"}>
-                        Price - Low to High
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-              </Grid>
+              <Box sx={{ marginBottom: "4rem" }}>
+                <Typography sx={{ color: "#151875", fontSize: "1.375rem" }}>
+                  All Products
+                </Typography>
+                <Typography sx={{ color: "#8A8FB9", fontSize: "0.75rem" }}>
+                  {results} results
+                </Typography>
+              </Box>
               <Grid container>
                 <Grid item sm={3}>
                   <Filters />

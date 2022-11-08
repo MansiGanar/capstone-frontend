@@ -9,7 +9,7 @@ const TopCategory = ({ image, categoryName, link }: ITopCategoryProps) => {
       <Box
         sx={{
           boxShadow: "0rem 0rem 1.563rem rgba(0, 0, 0, 0.2)",
-          padding: "2rem",
+          padding: "1.1rem",
           borderRadius: ".5rem",
         }}
       >

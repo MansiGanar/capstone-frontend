@@ -101,19 +101,50 @@ const ProductsListItem = ({ product }: IProductsListItemProps) => {
                     )
                   }
                 >
-                  <img
+                  {/* <img
                     src={
                       checkIfItemExists() ? cancelIcon : shoppingCartColorIcon
                     }
                     alt="shopping-cart"
-                  />
+                    style={{
+                      background: "#FB2E86",
+                      padding: "0.5rem",
+                      borderRadius: "50%",
+                    }}
+                  /> */}
+
+                  {checkIfItemExists() ? (
+                    <img
+                      src={shoppingCartColorIcon}
+                      alt="shopping-cart"
+                      style={{
+                        background: "#f28cb8bd",
+                        padding: "0.5rem",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={shoppingCartColorIcon}
+                      alt="shopping-cart"
+                      style={{
+                        // background: "#FB2E86",
+                        padding: "0.5rem",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  )}
                 </IconButton>
               </Tooltip>
             </Grid>
             <Grid item>
               <Tooltip title="View">
                 <IconButton onClick={handleClickOpen}>
-                  <img src={zoomIcon} alt="zoom" />
+                  <img
+                    src={zoomIcon}
+                    alt="zoom"
+                    style={{ padding: "0.5rem" }}
+                  />
                 </IconButton>
               </Tooltip>
             </Grid>
