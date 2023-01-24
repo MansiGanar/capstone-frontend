@@ -1,7 +1,7 @@
 export const BASE_URL =
-  "https://capstone-backend-ztv0.onrender.com/api/users/";
+  "https://drab-ruby-stingray-hat.cyclic.app/api/users/";
 export const BASE_URL_WITHOUT_USER =
-  "https://capstone-backend-ztv0.onrender.com/api/";
+  "https://drab-ruby-stingray-hat.cyclic.app/api/";
 
 export const REGISTER_USER_URL = BASE_URL + "register";
 export const LOGIN_USER_URL = BASE_URL + "login";
